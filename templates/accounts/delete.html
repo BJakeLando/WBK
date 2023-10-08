@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Delete {{ event.name }}{% endblock title %}
+
+{% block content %}
+<h1>Cancel Live Painting Event</h1>
+<p>Are you sure you want to delete ""{{ event.name }}" ?</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+</form>
+{% endblock content %}
