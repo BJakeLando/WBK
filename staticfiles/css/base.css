@@ -1,0 +1,41 @@
+.navbar {
+    color: white;
+}
+
+#about1{
+    margin: 25px;
+    height: 1400px;
+    width: 900px;
+}
+#homebg {
+    background-color: rgb(231, 216, 173);
+}
+
+#home1 {
+    color: rgb(26, 24, 24);
+    font-size: 100px;
+    display: inline-block;
+    font-family:cursive;
+    padding-left: 500px;
+}
+
+#welcome1 {
+    
+    border: solid 1px rgb(150, 149, 146);
+    padding: 10px;
+    margin-left: 400px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: 700px;
+    width: 700px;
+}
+
+#loginbtn {
+   margin: 50px;
+   display: inline-block;
+}
+
+/* .eventsheader {
+    padding: 25px;
+    color: white;
+} */
