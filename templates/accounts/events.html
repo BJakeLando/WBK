@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Events{% endblock title %} 
+
+{% block content %} 
+<center>
+<h1 style="
+    padding: 25px;
+    text-decoration: underline;
+    font-family:sans-serif;
+    font-weight: bold;
+">Booked Events</h1>
+    <div class="container">
+        <table class ="table table-lg">
+        <div class="row">
+            <div class="col-md-5">
+         
+                <div class ="card card-body" style="width:1200px;">
+                    <table class ="table table-lg">
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Date of Event</th>
+                            <th>Description</th>
+                        </tr>
+    
+                        {% for event in event_list %}
+                            <tr>
+                                <td>{{ event.name }}</a></td>
+                                <td>{{ event.event_date }}</td>
+                                <td>{{ event.description | truncatechars:250 }}</td>
+                                <td>{{ event.guest_count }}</a></td>
+                            </tr> 
+                        {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+        </table>
+    </div>
+    
+</center>
+{% endblock content %}

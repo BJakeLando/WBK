@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Event{% endblock title %}
+
+{% block content %}
+<center>
+<b><h1 style="font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top: 35px;">Book a live painting event</h1></b>
+<br><br>
+{% if submitted %}
+    Your Event Was Submitted Successfully!
+
+{% else %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit" class="btn btn-secondary">
+</form>
+{% endif %}
+    
+</center>
+{% endblock content %}
