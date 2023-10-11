@@ -4,6 +4,9 @@
 {% block title %}Add Event{% endblock title %}
 
 {% block content %}
+<body class="homebg">
+    
+
 <center>
 <b><h1 style="font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top: 35px;">Book a live painting event</h1></b>
 <br><br>
@@ -12,7 +15,7 @@
 
 {% else %}
 
-<form action="" method="POST">
+<form action="" method="POST" style="width:1200px;">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Submit" class="btn btn-secondary">
@@ -20,4 +23,5 @@
 {% endif %}
     
 </center>
+</body>
 {% endblock content %}

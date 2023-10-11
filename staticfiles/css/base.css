@@ -7,10 +7,15 @@
     height: 1400px;
     width: 900px;
 }
-#homebg {
+.homebg {
     background-color: rgb(231, 216, 173);
+    
 }
 
+.homebg img{
+    align-items: center;
+    
+}
 #home1 {
     color: rgb(26, 24, 24);
     font-size: 100px;
@@ -23,9 +28,6 @@
     
     border: solid 1px rgb(150, 149, 146);
     padding: 10px;
-    margin-left: 400px;
-    margin-top: 50px;
-    margin-bottom: 100px;
     height: 700px;
     width: 700px;
 }
