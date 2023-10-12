@@ -12,33 +12,32 @@
     font-weight: bold;
 ">Booked Events</h1>
     <div class="container">
-        <table class ="table table-lg">
         <div class="row">
             <div class="col-md-5">
          
                 <div class ="card card-body" style="width:1200px;">
-                    <table class ="table table-lg">
+                    <table id="events_list" class ="table table-success table-striped">
                         <tr>
                             <th>Client Name</th>
                             <th>Date of Event</th>
                             <th>Description</th>
+                            <th>Location</th>
                         </tr>
     
                         {% for event in event_list %}
-                            <tr>
+                            <tr class="table-active">
                                 <td>{{ event.name }}</a></td>
                                 <td>{{ event.event_date }}</td>
                                 <td>{{ event.description | truncatechars:250 }}</td>
-                                <td>{{ event.guest_count }}</a></td>
+                                <td>{{ event.location }}</td>
                             </tr> 
                         {% endfor %}
-                    
+                    </table>
                 </div>
             </div>
         </div>
         </table>
     </div>
-    
 </center>
 
 </body>
