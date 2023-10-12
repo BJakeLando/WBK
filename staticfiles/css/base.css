@@ -31,3 +31,16 @@
     height: 700px;
     width: 700px;
 }
+
+#pricingImage {
+    margin: 50px;
+    padding: 10px;
+    align-items: center;
+    height: 1300px;
+    width: 1000px;
+    border: solid 1px rgb(150, 149, 146);
+}
+
+#events_list {
+    padding: 50px;
+}
