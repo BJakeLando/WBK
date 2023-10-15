@@ -29,7 +29,7 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-3640.up.railway.app']
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['wbk-production.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-
+CSRF_TRUSTED_ORIGINS = ['https://https://wbk-production.up.railway.app/']
 STATIC_URL = 'static/'
 STATICFILES_DIRS= [str(BASE_DIR.joinpath('static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
