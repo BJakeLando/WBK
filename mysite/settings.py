@@ -25,12 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 # SECURITY WARNING: don't run with debug turned on in production!
-CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app']
 DEBUG = True
 
 
 ALLOWED_HOSTS = ['wbk-production.up.railway.app']
-
 
 # Application definition
 
@@ -147,3 +145,4 @@ if 'DATABASE_URL' in os.environ:
 
 
 mimetypes.add_type("text/css", ".css", True)
+CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app']
