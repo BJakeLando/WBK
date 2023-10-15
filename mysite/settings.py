@@ -29,7 +29,7 @@ CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app']
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['https://wbk-production.up.railway.app']
+ALLOWED_HOSTS = ['wbk-production.up.railway.app']
 
 
 # Application definition
