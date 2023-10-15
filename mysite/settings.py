@@ -29,7 +29,7 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-3640.up.railway.app']
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['wbk-production.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
