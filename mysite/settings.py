@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import mimetypes
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 # SECURITY WARNING: don't run with debug turned on in production!
-CSRF_TRUSTED_ORIGINS = ['https://web-production-3640.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app']
 DEBUG = True
 
 
@@ -138,7 +138,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
 
-import dj_database_url
 
 if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config(
