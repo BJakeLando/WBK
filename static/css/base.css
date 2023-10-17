@@ -1,5 +1,9 @@
+*{
+    padding:0;
+    margin: 0;
+}
 .navbar {
-    color: white;
+    color: rgb(236, 210, 154);
 }
 
 #about1{
@@ -8,7 +12,7 @@
     width: 900px;
 }
 .homebg {
-    background-color: rgb(231, 216, 173);
+    background-color: rgb(248, 248, 247);
     
 }
 
@@ -16,20 +20,14 @@
     align-items: center;
     
 }
-#home1 {
-    color: rgb(26, 24, 24);
-    font-size: 100px;
-    display: inline-block;
-    font-family:cursive;
-    padding-left: 500px;
-}
+
 
 #welcome1 {
-    
-    border: solid 1px rgb(150, 149, 146);
+    border: solid 3px rgb(63, 58, 45);
+    margin: 6rem;
     padding: 10px;
-    height: 700px;
-    width: 700px;
+    height: 50rem;
+    width: 50rem;
 }
 
 #pricingImage {
@@ -49,7 +47,12 @@
     display: flex;
     justify-content: center;
     width:100%;
-    padding-top: 300px;
+    padding-top: 200px;
     padding-bottom: 50px;
 
+}
+
+.nav-link {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
 }

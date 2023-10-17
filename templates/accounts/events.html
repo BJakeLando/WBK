@@ -8,9 +8,10 @@
 <h1 style="
     padding: 25px;
     text-decoration: underline;
-    font-family:sans-serif;
-    font-weight: bold;
-">Booked Events</h1>
+    font-size: 65px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"
+>Booked Live Painting Events</h1>
+<h5 style="padding: 25px">Karla is unavailable on the dates below.</h5>
     <div class="container">
         <div class="row">
             <div class="col-md-5">
@@ -18,18 +19,16 @@
                 <div class ="card card-body" style="width:1200px;">
                     <table id="events_list" class ="table table-success table-striped">
                         <tr>
-                            <th>Client Name</th>
-                            <th>Date of Event</th>
+                            <th>Booking Unavailable</th>
                             <th>Description</th>
                             <th>Location</th>
                         </tr>
     
                         {% for event in event_list %}
                             <tr class="table-active">
-                                <td>{{ event.name }}</a></td>
                                 <td>{{ event.event_date }}</td>
                                 <td>{{ event.description | truncatechars:250 }}</td>
-                                <td>{{ event.location }}</td>
+                                <td>{{ event.venue }}</td>
                             </tr> 
                         {% endfor %}
                     </table>
