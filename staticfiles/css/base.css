@@ -25,6 +25,7 @@ body {
 
 
 #welcome1 {
+    display: flex;
     border: solid 3px rgb(63, 58, 45);
     margin: 6rem;
     padding: 10px;
