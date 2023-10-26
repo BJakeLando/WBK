@@ -26,7 +26,7 @@ def add_event(request):
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'accounts/events.html',
+            return render(request, 'accounts/success.html',
                   {'event_list': event_list})
     else:
         form = EventForm
