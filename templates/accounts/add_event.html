@@ -8,19 +8,21 @@
     
 
 <center>
-<b><h1 style="font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top: 35px;">Book a live painting event</h1></b>
+<b><h1 style="font-size: 45px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top: 35px;">Book a live painting event</h1></b>
 <br><br>
 {% if submitted %}
     Your Event Was Submitted Successfully!
 
 {% else %}
+<div class="container-fluid">
 
-<form action="" method="POST" style="width:1000px;">
+<form action="" method="POST" style="width:30rem;">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Submit" class="btn btn-primary">
 </form>
 {% endif %}
+</div>
     
 </center>
 </body>
