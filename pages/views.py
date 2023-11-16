@@ -1,12 +1,38 @@
 from django.shortcuts import render
+from .models import *
 
 from django.views.generic import TemplateView
 
-class HomeView(TemplateView):
-    template_name = 'pages/home.html'
+def home(request):
+    categories = Category.objects.all()
+    context = {}
+    context['categories'] = categories
+    return render(request, 'pages/home.html', context)
 
 class AboutView(TemplateView):
     template_name = 'pages/about.html'
 
 class PricingView(TemplateView):
     template_name = 'pages/pricing.html'
+
+
+def categoryPage(request, slug):
+
+    category = Category.objects.get(slug=slug)
+    images = Image.objects.filter(category=category).order_by('-date_created')
+    context = {}
+    context['images'] = images
+    context['category'] = category
+
+    return render(request, 'pages/gallery.html', context)
+
+
+def detailPage(request, slug1, slug2):
+    category = Category.objects.get(slug=slug1)
+    image = Image.objects.get(slug=slug2)
+
+    context = {}
+    context['category'] = category
+    context['image'] = image
+
+    return render(request, 'main/image.html', context)
