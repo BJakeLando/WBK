@@ -58,7 +58,7 @@
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-lg-between">
       {% for category in categories %}
-      <a style="padding: 30px;text-decoration: underline; font-size: 35px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"  href="{% url 'image_category' category.slug %}">{{category.title}}</a>
+      <a style="padding: 25px;text-decoration: underline; font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"  href="{% url 'image_category' category.slug %}">{{category.title}}</a>
       {% endfor %}
     </nav>
   </div>
@@ -80,8 +80,8 @@
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">Online Event Booking</h3>
-          <p class="card-text mb-auto">Want to schedule an Karla for an event? Fill out the online booking form and she will reach out to you after you submit it.</p>
-          <a href="{% url 'add-event' %}" class="stretched-link"><button>Live Paint Form</button></a>
+          <p class="card-text mb-auto">Fill out the online booking form and read the agreement contract to get started. Karla will contact you after she receives the completed event form.</p><br>
+          <a href="{% static 'img/agreement.jpeg' %}" class="stretched-link"><button style="background-color: rgb(199, 156, 127);" class="btn btn-sm">Agreement Contract</button></a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img style="height:250px; width:225px;"src="{% static 'img/wbk.jpeg' %}" alt="">
@@ -131,7 +131,7 @@
         <div class="p-4">
           <h4 class="fst-italic">Follow Karla on Social Media</h4>
           <ol class="list-unstyled mb-0">
-            <li> <a href="https://www.instagram.com/watercolorsbykarla/" class="me-4 text-reset">
+            <li><a href="https://www.instagram.com/watercolorsbykarla/" class="me-4 text-reset">
             <i class="fab fa-instagram"></i>
               </a></li>
             <li><a href="https://www.tiktok.com/@watercolors.bykarla" class="me-4">
@@ -140,7 +140,7 @@
                 <i class="fab fa-etsy"></i>
               </a></li>
             <li><a href="https://www.facebook.com/karla.p.padres" class="me-4">
-                <i class="fab lg fa-facebook-f"></i></a></li>
+                <i class="fab fa-facebook-f"></i></a></li>
           </ol>
         </div>
       </div>
