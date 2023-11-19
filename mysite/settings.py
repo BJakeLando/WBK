@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['wbk-production.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
