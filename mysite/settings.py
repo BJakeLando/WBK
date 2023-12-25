@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -131,7 +132,7 @@ DJANGORESIZED_DEFAULT_KEEP_META = True
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'PNG': ".png"}
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/upload/')
 MEDIA_URL = '/media/'
 
 
