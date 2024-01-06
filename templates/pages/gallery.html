@@ -64,7 +64,7 @@
         {% for image in images %}
         <div class="col">
           <div style="border: 1px solid black;" class="card shadow-sm">
-            <img src="{{image.tallImage.url}}">
+            <img src="{% url 'image_category' image.slug %}">
 
             <div class="card-body">
               <p class="card-text">{{image.description}}</p>
