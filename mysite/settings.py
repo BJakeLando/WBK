@@ -14,10 +14,11 @@ from pathlib import Path
 import os
 import mimetypes
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASE_URL = "postgresql://postgres:rNwcdvstAEsopwxqHJUA@containers-us-west-108.railway.app:6361/railway"
-
+mimetypes.add_type("text/javascript", ".js", True)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +27,7 @@ DATABASE_URL = "postgresql://postgres:rNwcdvstAEsopwxqHJUA@containers-us-west-10
 # SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -150,5 +151,5 @@ if 'DATABASE_URL' in os.environ:
     )
 
 
-mimetypes.add_type("text/css", ".css", True)
+
 CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app']
