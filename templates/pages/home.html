@@ -50,7 +50,7 @@
     <!-- Custom styles for this template -->
     <link href="blog.css" rel="stylesheet">
   </head>
-  <body>
+  <body >
   {% block content %}
 <div class="container">
 
@@ -69,7 +69,7 @@
     <center>
     <div class="col-md-6 px-0">
         <center>
-      <h1 class="display-4">Welcome to Watercolors by Karla!</h1>
+          <a class="nav-link" href="{% url 'add-event' %}"><h1 class="display-4">Book Live Painting Event</h1></a>
        </center>
     </div>
     </center>
@@ -79,8 +79,13 @@
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <h3 class="mb-0">Online Event Booking</h3>
-          <p class="card-text mb-auto">Fill out the online booking form and read the agreement contract to get. Karla will contact you after she receives the completed event form.</p><br>
+          <h3 class="mb-0">Getting Started</h3>
+          <br>
+          <ol class="card-text mb-auto">
+            <li>Fill out online booking form.</li>
+            <li>Read and sign contract agreement.</li>
+          </ol>
+          <br>
           <a href="{% static 'img/agreement.jpeg' %}" class="stretched-link"><button style="background-color: rgb(199, 156, 127);" class="btn btn-sm">Agreement Contract</button></a>
         </div>
         <div class="col-auto d-none d-lg-block">
