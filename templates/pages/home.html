@@ -95,9 +95,7 @@
           <u><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ;" class="mb-0">Gallery</h3></u>
           <br>
           <ul>
-            {% for category in categories %}
-            <p><a href="{% url 'image_category' category.slug %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-sm">{{category.title}}</button></a></p>
-            {% endfor %}
+            <p><a href="{% url 'livepaint'  %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-sm">Live Paint Portraits</button></a></p>
           </ul>
         </div>
         <div class="col-auto d-none d-lg-block">

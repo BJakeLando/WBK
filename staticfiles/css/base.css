@@ -65,3 +65,9 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
 }
+
+.gallery_image {
+    height: 30em;
+    width: 22em;
+    border: 1px brown solid;
+}
