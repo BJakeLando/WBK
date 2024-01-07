@@ -15,24 +15,33 @@ class AboutView(TemplateView):
 class PricingView(TemplateView):
     template_name = 'pages/pricing.html'
 
+class LivePaintView(TemplateView):
+    template_name = 'pages/livepaint.html'
 
-def categoryPage(request, slug):
+class CommissionsView(TemplateView):
+    template_name = 'pages/commissions.html'
 
-    category = Category.objects.get(slug=slug)
-    images = Image.objects.filter(category=category).order_by('-date_created')
-    context = {}
-    context['images'] = images
-    context['category'] = category
-
-    return render(request, 'pages/gallery.html', context)
+class PrintsView(TemplateView):
+    template_name = 'pages/prints.html'
 
 
-def detailPage(request, slug1, slug2):
-    category = Category.objects.get(slug=slug1)
-    image = Image.objects.get(slug=slug2)
+# def categoryPage(request, slug):
 
-    context = {}
-    context['category'] = category
-    context['image'] = image
+#     category = Category.objects.get(slug=slug)
+#     images = Image.objects.filter(category=category).order_by('-date_created')
+#     context = {}
+#     context['images'] = images
+#     context['category'] = category
 
-    return render(request, 'main/image.html', context)
+#     return render(request, 'pages/lp.html', context)
+
+
+# def detailPage(request, slug1, slug2):
+#     category = Category.objects.get(slug=slug1)
+#     image = Image.objects.get(slug=slug2)
+
+#     context = {}
+#     context['category'] = category
+#     context['image'] = image
+
+#     return render(request, 'pages/image.html', context)
