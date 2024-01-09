@@ -13,11 +13,6 @@ class SignupView(CreateView):
     template_name= "registration/signup.html"
 
 
-def all_events(request):
-    event_list = LivePaintEvent.objects.all().order_by('event_date')
-    return render(request, 'accounts/events.html',
-                  {'event_list': event_list})
-
 
 def add_event(request):
     submitted = False
