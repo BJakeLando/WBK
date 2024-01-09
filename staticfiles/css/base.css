@@ -42,8 +42,8 @@ body {
     margin: 50px;
     padding: 10px;
     align-items: center;
-    height: 1300px;
-    width: 1000px;
+    height: auto;
+    width: 80%;
     border: solid 1px rgb(150, 149, 146);
 }
 
@@ -67,7 +67,11 @@ body {
 }
 
 .gallery_image {
-    height: 30em;
+    height: auto;
     width: 22em;
     border: 1px brown solid;
+}
+
+#event_button:hover {
+    color: rgb(130, 62, 16);
 }
