@@ -12,8 +12,6 @@ from .views import (
 
 urlpatterns =[
     path('', home, name='home'),
-    # path('category/<slug:slug>', categoryPage, name='image_category'),
-    # path('category/<slug:slug>/<slug:slug2>', detailPage, name='image-detail'),
     path("about/", AboutView.as_view(), name ='about'),
     path("pricing/", PricingView.as_view(), name ='pricing'),
     path("livepaint/", LivePaintView.as_view(), name ='livepaint'),
