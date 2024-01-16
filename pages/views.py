@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .models import *
 
 from django.views.generic import TemplateView
 
@@ -21,6 +20,4 @@ class CommissionsView(TemplateView):
 
 class PrintsView(TemplateView):
     template_name = 'pages/prints.html'
-
-
 
