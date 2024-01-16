@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ review.title }}{% endblock %}
+
+
+{% block content %}
+<h1>{{ review.title }}</h1>
+<h3>{{ review.subtitle }}</h3>
+<small>Created on: {{ review.created_on }}</small>
+<p>{{ review.body }}</p>
+{% endblock content %}
