@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import LivePaintEvent
 from django.urls import reverse_lazy
 from .forms import EventForm
-from django.http import HttpResponseRedirect
+
 
 
 class SignupView(CreateView):
@@ -41,3 +41,8 @@ class EventDeleteView(DeleteView):
         issue_obj = self.get_object(pk)
         issue_obj.delete()
         return self.request.user
+    
+class SignupView(CreateView):
+    form_class = UserCreationForm
+    template_name= "registration/signup.html"
+    success_url= reverse_lazy('login')
