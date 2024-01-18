@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-CSRF_TRUSTED_ORIGINS = ['https://https://wbk-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app/']
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS= [str(BASE_DIR.joinpath('static'))]
