@@ -212,10 +212,9 @@
     <div class="row">
 
     {% for review in review_list %}
-      <div style="" class="col-lg-4">
+      <div class="col-lg-4">
 
-        <h2 class="fw-normal">{{ review.name }}</h2>
-        <h3 class="fw-normal">{{ review.title }}</h3>
+        <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="fw-normal">{{ review.name }}</h2>
         <p>{{ review.body }}</p>
         <p><a class="btn btn-secondary" href="{% url 'detail' review.id %}">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
