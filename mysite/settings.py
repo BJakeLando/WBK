@@ -15,6 +15,8 @@ import os
 import mimetypes
 import dj_database_url
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -83,10 +85,23 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@viaduct.proxy.rlwy.net:30894/railway"
+
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    print("Postgres URL not found, using sqlite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -122,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-CSRF_TRUSTED_ORIGINS = ['https://wbk-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['‘https://*.railway.app’']
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS= [str(BASE_DIR.joinpath('static'))]
@@ -144,10 +159,3 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
-
-
-if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=500,
-        conn_health_checks=True,
-    )
