@@ -11,6 +11,7 @@ class LivePaintEvent(models.Model):
     wedding_planner =  models.CharField('Event Planner Name',max_length=128)
     description = models.TextField(blank = True)
     email = models.EmailField('Email', max_length=256, blank=True) 
+    source = models.TextField(max_length=555, blank=True)
 
     def __str__(self):
         return self.name
