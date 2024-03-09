@@ -52,6 +52,7 @@ body {
 }
 
 .footer {
+    color: black;
     display: flex;
     position: absolute;
     justify-content: center;
