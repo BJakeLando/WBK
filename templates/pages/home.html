@@ -4,6 +4,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -61,15 +62,15 @@
   <center>
   <h1 style="padding:2rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">I'm excited that you're here!</h1>
   
-  <img style="height:auto; width: 80%;" src="{% static 'img/table.jpg' %}" alt="karla lubbert doing watercolor painting">
+  <img style="height:auto; width: 100%;" src="{% static 'img/table.jpg' %}" alt="karla lubbert doing watercolor painting">
 </center>
 
   <br>
   <div class="row mb-2">
-    <div class="col-md-6">
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b><u>Getting Started</u></b></strong></h3>
+          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Getting Started</b></strong></h3>
           <br>
           <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" class="card-text mb-auto">
             <li>Fill out online booking form.</li>
@@ -77,8 +78,8 @@
             <li>Send deposit to save your date.</li>
           </ol>
           <br>
-          <p><a href="{% url 'add-event' %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Book Your Date!</button></a></p>
-          <p><a href="{% static 'img/newcontract.jpg' %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Agreement Contract</button></a></p>
+          <p><a href="{% url 'add-event' %}"><button class="btn btn-lg">Book Your Date!</button></a></p>
+          <p><a href="{% static 'img/newcontract.jpg' %}"><button class="btn btn-lg">Agreement Contract</button></a></p>
         </div>
 
         
@@ -88,16 +89,18 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif"   class="d-inline-block mb-2"></strong>
-          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b><u>Packages</u></b></strong></h3>
+          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Packages</b></strong></h3>
+          <br>
+          <h6>I offer a variety of pricing packages for live painting events.</h6>
           <br>
           <ul>
-            <p><a href="{% url 'pricing'  %}"><button style="color:white; background-color: rgb(22, 17, 14);" class="btn btn-lg">Tiny Gift</button></a></p>
-            <p><a href="{% url 'pricing'  %}"><button style="background-color: rgb(194, 188, 183);" class="btn btn-lg">Silver Package</button></a></p>
-            <p><a href="{% url 'pricing'  %}"><button style="background-color: rgb(239, 237, 111);" class="btn btn-lg">Gold Package</button></a></p>
+            <p><a href="{% url 'pricing'  %}"><button class="btn btn-lg">Tiny Gift</button></a></p>
+            <p><a href="{% url 'pricing'  %}"><button class="btn btn-lg">Silver Package</button></a></p>
+            <p><a href="{% url 'pricing'  %}"><button  class="btn btn-lg">Gold Package</button></a></p>
           </ul>
         </div>
         <div class="col-auto d-none d-lg-block">
@@ -106,15 +109,15 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif"   class="d-inline-block mb-2"></strong>
-          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b><u>Recent Work</u></b></strong></h3>
+          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Recent Work</b></strong></h3>
           <br>
           <ul>
-            <p><a href="{% url 'livepaint'  %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Live Painting</button></a></p>
-            <p><a href="{% url 'commissions'  %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Commissions</button></a></p>
+            <p><a href="{% url 'livepaint'  %}"><button class="btn btn-lg">Live Painting</button></a></p>
+            <p><a href="{% url 'commissions'  %}"><button class="btn btn-lg">Commissions</button></a></p>
           </ul>
         </div>
         <div class="col-auto d-none d-lg-block">
@@ -122,7 +125,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif" class="d-inline-block mb-2">Live Wedding Painting</strong>
