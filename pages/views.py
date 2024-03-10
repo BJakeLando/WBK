@@ -21,3 +21,5 @@ class CommissionsView(TemplateView):
 class PrintsView(TemplateView):
     template_name = 'pages/prints.html'
 
+class BioView(TemplateView):
+    template_name = 'pages/bio.html'
