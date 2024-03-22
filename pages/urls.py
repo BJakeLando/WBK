@@ -8,6 +8,8 @@ from .views import (
     CommissionsView,
     PrintsView,
     BioView,
+    WelcomeView,
+    GalleryView,
 
 )
 
@@ -19,4 +21,6 @@ urlpatterns =[
     path("commissions/", CommissionsView.as_view(), name ='commissions'),
     path("prints/", PrintsView.as_view(), name ='prints'),
     path("bio/", BioView.as_view(), name ='bio'),
+    path("welcome/", WelcomeView.as_view(), name ='welcome'),
+    path("gallery/", GalleryView.as_view(), name ='gallery'),
 ]
