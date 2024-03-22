@@ -21,21 +21,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
     rel="stylesheet"
     />
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+   
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
 </head>
@@ -62,6 +48,12 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'list' %}">Client Feedback</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'welcome' %}">Welcome Signs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
               </li>
                 </ul>
           </div>

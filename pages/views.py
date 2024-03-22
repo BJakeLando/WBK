@@ -23,3 +23,9 @@ class PrintsView(TemplateView):
 
 class BioView(TemplateView):
     template_name = 'pages/bio.html'
+
+class WelcomeView(TemplateView):
+    template_name = 'pages/welcome.html'
+
+class GalleryView(TemplateView):
+    template_name = 'pages/gallery.html'

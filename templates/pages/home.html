@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Brandon Landers">
     <meta name="generator" content="">
-    <title>WatercolorsbyKarla</title>
+    {% block title %}Home Page{% endblock title %}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
 
@@ -27,23 +27,6 @@
 <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
 
     
     <!-- Custom styles for this template -->
@@ -66,16 +49,11 @@
   <br>
   <h2>About Karla</h2>
 
-  <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Karla has a very distinct & unique Fashion figure (non cartoonish) approach to her Guest watercolor Portraits! She was trained by former Fashion Institute of Design professors at the Art Institute, and she excelled in the illustration department. That’s why she started painting people and making her work as gifts moving from Arizona, to Miami, to San Diego. 
-    <br>
-
-    <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;">I’ve been painting people’s precious memories since 2016~ After graduating from The Art Institute, I’ve loved it so much that now I do it live at weddings, showers and corporate parties. Always adding a very unique entertainment value to your special day! 
-      <br>
-    (My little Wedding Thank you cards are made Post-Wedding, where I will be painting your guests from photos.)</p> <a href="{% url 'bio' %}">Read More</a>
+  <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;">I like to think that creating art for you is a privilege, but mostly I love to see how your special moments come to life in a new way! Karla is known for her very distinctive fashion-based figure & her detailed approach to faces on watercolor Portraits! As a young artist, she learned from NYC Fashion editors & professors at the Art Institute. Excelling in the illustration department... <strong><a style = "color:rgb(93, 85, 85);" href="{% url 'bio' %}">Read More</a></strong>
 </center>
 <br>
 <center>
-<img style="height: auto; width: 95%;"  src="{% static 'img/kissing_couple.JPG' %}" alt="">
+<img style="height: auto; width: 95%; border-radius: 10%;"  src="{% static 'img/kissing_couple.jpg' %}" alt="Groom elegantly dips his bride and kisses her">
 </center>
   <br>
   <div class="row mb-2">
@@ -104,7 +82,6 @@
     <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif"   class="d-inline-block mb-2"></strong>
           <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Packages</b></strong></h3>
           <br>
           <h6>I offer 3 packages for live painting events.</h6>
@@ -116,7 +93,7 @@
           </ul>
         </div>
         <div class="col-auto d-none d-lg-block">
-            <img style="height:250px; width:100%;"src="{% static 'img/wbklogo.jpg' %}" alt="">
+            <img style="height:250px; width:100%;"src="{% static 'img/wbklogo.jpg' %}" alt="watercolors by karla">
 
         </div>
       </div>
@@ -142,7 +119,7 @@
          
           <br>
           <center>
-          <img style=" height: auto; width: 100%;" src="{% static 'img/LP4.jpg' %}" alt="karla painting at a wedding">
+          <img style=" height: auto; width: 100%;" src="{% static 'img/welcome.jpg' %}" alt="karla painting at a wedding">
         </center>
           
        
