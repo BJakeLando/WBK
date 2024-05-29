@@ -6,7 +6,7 @@ from .models import LivePaintEvent
 class EventForm(ModelForm):
     class Meta:
         model = LivePaintEvent
-        fields = ('name','phone','event_date','venue','guest_count','wedding_planner','description','email', 'source')
+        fields = ('name','phone','event_date','venue','guest_count','wedding_planner','description','email', 'source','instagram',)
         labels = {
             'name':'', 
             'phone':'',
@@ -18,8 +18,12 @@ class EventForm(ModelForm):
             'description':'',
             'email':'',
             'source':'',
+            'instagram':'',
 
         }
+
+
+
         widgets = {
             'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}), 
             'phone':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Phone Number'}),
@@ -31,5 +35,6 @@ class EventForm(ModelForm):
             'description':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Brief Description of event. ( Wedding, Birthday, etc )'}),
             'email':forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Email'}),
             'source':forms.TextInput(attrs={'class': 'form-control','placeholder': 'How did you hear about me?'}),
+            'instagram':forms.TextInput(attrs={'class': 'form-control','placeholder': 'What is your Instagram?'}),
 
         }

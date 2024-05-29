@@ -9,9 +9,10 @@ class LivePaintEvent(models.Model):
     guest_count= models.CharField('Estimated Guest Count', max_length=128)
     reference = models.CharField('How Did You Hear About Us?', max_length=128)
     wedding_planner =  models.CharField('Event Planner Name',max_length=128)
-    description = models.TextField(blank = True)
-    email = models.EmailField('Email', max_length=256, blank=True) 
-    source = models.TextField(max_length=555, blank=True)
+    description = models.TextField(max_length=255)
+    email = models.EmailField('Email', max_length=256) 
+    source = models.TextField(max_length=555)
+    instagram = models.CharField('ig',max_length=128)
 
     def __str__(self):
         return self.name
