@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Gallery</title>
+    {% block title %}Live Paint Gallery{% endblock title %}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -27,22 +27,6 @@
 <meta name="theme-color" content="#7952b3">
 
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
 
     
   </head>
@@ -102,37 +86,111 @@
   <div class="container">
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
       <div class="col">
         <div class="card shadow-sm">
-         <img class= "gallery_image" src="{% static 'img/LP1.JPG'%}" alt="wedding watercolor live painting portrait">
+         <img class= "gallery_image" src="{% static 'img/lp12.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
             <div class="d-flex justify-content-between align-items-center">
               
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
             </div>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/LP2.jpg'%}" alt="">
+         <img class= "gallery_image" src="{% static 'img/lp13.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/lp14.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/lp15.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/lp16.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/lp17.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/lp100.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Brunch @ Rancho Santa Fe Inn</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/lp99.jpg'%}" alt="live painting portrait of girl holding a beverage">
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
               
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Aunt in polka dot dress</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Beverage time</small>
             </div>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card shadow-sm">
-        <img class= "gallery_image" src="{% static 'img/LP3.jpg'%}" alt="wedding watercolor live painting portrait">
+        <img class= "gallery_image" src="{% static 'img/lp98.jpg'%}" alt="wedding watercolor live painting portrait">
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Karla in her flow state</small>
             </div>
           </div>
         </div>
@@ -140,11 +198,11 @@
 
       <div class="col">
         <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/LP4.jpg'%}" alt="wedding watercolor live painting portrait">
+          <img class= "gallery_image" src="{% static 'img/lp97.jpg'%}" alt="wedding watercolor live painting portrait of woman with green pants">
           <div class="card-body">
       
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Friend of the Groom</small>
             </div>
           </div>
         </div>
@@ -183,24 +241,14 @@
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/LP11.jpg'%}" alt="wedding watercolor live painting portrait">
-          <div class="card-body">
-        
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <div class="col">
         <div class="card shadow-sm">
           <img class= "gallery_image" src="{% static 'img/LP10.jpg'%}" alt="wedding watercolor live painting portrait">
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Best man and his wife, Temecula Creek, CA</small>
             </div>
           </div>
         </div>
@@ -211,7 +259,7 @@
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Friends of the bride, Temecula Creek, CA</small>
             </div>
           </div>
         </div>
@@ -222,7 +270,7 @@
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Bridesmaids, San Diego, CA</small>
             </div>
           </div>
         </div>
@@ -233,7 +281,40 @@
           <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Cousins of the bride, Rancho Santa Fe Wedding</small>
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Family members of groom, TCI</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/LP1.JPG'%}" alt="wedding watercolor live painting portrait">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/LP2.jpg'%}" alt="wedding watercolor live painting portrait of girl with polka dot dress">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Polka Dot Dress</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/LP3.jpg'%}" alt="wedding watercolor live painting portrait">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
             </div>
           </div>
         </div>

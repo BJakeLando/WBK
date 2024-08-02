@@ -4,12 +4,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Brandon Landers">
     <meta name="generator" content="">
-    <title>WatercolorsbyKarla</title>
+    {% block title %}Home Page{% endblock title %}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
 
@@ -27,23 +28,6 @@
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
     
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
@@ -53,23 +37,30 @@
   <body >
   {% block content %}
 <div class="container">
-
+<p style="font-size: xx-small; color: white;">Wedding Portiats painted by a professional artist that has been doing this for over 20 years. Her skill and expertise are unmatched in the field of water color wedding portraits or live events. </p>
 
 </div>
 
 <main class="container">
   <center>
-  <h1 style="padding:1rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Welcome to Watercolors by Karla</h1>
+  <h1 style="padding:2rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Capturing Memories With a Brushstroke</h1>
   
-  <img style="height:auto; width: 90%;" src="{% static 'img/homeshadow.jpg' %}" alt="karla lubbert doing watercolor painting">
-</center>
+  <img style="margin-bottom: 2rem; height:auto; width: 100%;" src="{% static 'img/table.jpg' %}" alt="karla lubbert doing watercolor painting">
+  <br>
+  <h2>About Karla</h2>
 
+  <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;">I like to think that creating art for you is a privilege, but mostly I love to see how your special moments come to life in a new way! Karla is known for her very distinctive fashion-based figure & her detailed approach to faces on watercolor Portraits! As a young artist, she learned from NYC Fashion editors & professors at the Art Institute. Excelling in the illustration department... <strong><a style = "color:rgb(93, 85, 85);" href="{% url 'bio' %}">Read More</a></strong>
+</center>
+<br>
+<center>
+<img style="height: auto; width: 95%; border-radius: 10%;"  src="{% static 'img/kissing_couple.jpg' %}" alt="Groom elegantly dips his bride and kisses her">
+</center>
   <br>
   <div class="row mb-2">
-    <div class="col-md-6">
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <h3 class="mb-0 text-success">Getting Started</h3>
+          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Getting Started</b></strong></h3>
           <br>
           <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" class="card-text mb-auto">
             <li>Fill out online booking form.</li>
@@ -77,54 +68,54 @@
             <li>Send deposit to save your date.</li>
           </ol>
           <br>
-          <p><a href="{% url 'add-event' %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Online Booking Form</button></a></p>
-          <p><a href="{% static 'img/agreement.JPG' %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Agreement Contract</button></a></p>
+          <p><a href="{% url 'add-event' %}"><button class="btn btn-lg">Book Your Date!</button></a></p>
+          <p><a href="{% static 'img/nAgreement.jpeg' %}"><button class="btn btn-lg">Agreement Contract</button></a></p>
         </div>
 
         
         <div class="col-auto d-none d-lg-block">
-          <img style="height:250px; width:225px;"src="{% static 'img/wbk.jpeg' %}" alt="">
+         
 
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div>
+      
+        
+      </div>
+    </div>
+    <div>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Products</strong>
-          <u><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ;" class="mb-0">Gallery</h3></u>
+          <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif"   class="d-inline-block mb-2"></strong>
+          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Recent Work</b></strong></h3>
           <br>
           <ul>
-            <p><a href="{% url 'livepaint'  %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Live Paint Portraits</button></a></p>
-            <p><a href="{% url 'commissions'  %}"><button style="background-color: rgb(199, 156, 127);" class="btn btn-lg">Commissions</button></a></p>
+            <p><a href="{% url 'livepaint'  %}"><button class="btn btn-lg">Live Painting</button></a></p>
+            <p><a href="{% url 'commissions'  %}"><button class="btn btn-lg">In Studio Commissions</button></a></p>
           </ul>
         </div>
         <div class="col-auto d-none d-lg-block">
-            <img style="height:250px; width:100%;"src="{% static 'img/wbklogo.jpg' %}" alt="">
 
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Featured Clients</strong>
-          <u><h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" class="mb-0">The Rockettes from NYC!</h3></u>
+  
+
+         
           <br>
-          <img src="{% static 'img/com_5.jpg' %}" alt="watercolor painting of the rockettes in New York City, NY">
-        </div>
-      </div>
-    </div>
+          <center>
+          <img style=" height: auto; width: 100%;" src="{% static 'img/welcome.jpg' %}" alt="karla painting at a wedding">
+        </center>
+          
+       
+       
   </div>
 
   <div class="row g-5">
     <div class="col-md-8">
 
       <article class="blog-post">
-        <img style="margin-right: 1px; float: left; height: auto; width:50%;"src="{% static 'img/lphome.PNG' %}" alt="">
-        <img style="float: right; height: auto; width:50%;"src="{% static 'img/pov.jpg' %}" alt="">
-
-
 
     </div>
 
@@ -133,6 +124,8 @@
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="fst-italic">About</h4>
           <p class="mb-0">Karla Padres Lubbert has been doing art professionally for the past 10 years. She developed a passion for watercolor painting when she was a child and today that is what she specializes in...<a href="{% url 'new' %}">Write a Review!</a></p>
+          <h4 class="fst-italic"></h4>
+          <p class="mb-0"></a></p>
         </div>
 
         <div class="p-4">
