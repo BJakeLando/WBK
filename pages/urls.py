@@ -7,6 +7,9 @@ from .views import (
     LivePaintView,
     CommissionsView,
     PrintsView,
+    BioView,
+    WelcomeView,
+    GalleryView,
 
 )
 
@@ -17,5 +20,7 @@ urlpatterns =[
     path("livepaint/", LivePaintView.as_view(), name ='livepaint'),
     path("commissions/", CommissionsView.as_view(), name ='commissions'),
     path("prints/", PrintsView.as_view(), name ='prints'),
-    
+    path("bio/", BioView.as_view(), name ='bio'),
+    path("welcome/", WelcomeView.as_view(), name ='welcome'),
+    path("gallery/", GalleryView.as_view(), name ='gallery'),
 ]

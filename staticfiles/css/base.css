@@ -43,7 +43,7 @@ body {
     padding: 10px;
     align-items: center;
     height: auto;
-    width: 80%;
+    width: 100%;
     border: solid 1px rgb(150, 149, 146);
 }
 
@@ -52,6 +52,7 @@ body {
 }
 
 .footer {
+    color: black;
     display: flex;
     position: absolute;
     justify-content: center;

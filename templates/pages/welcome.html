@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome Signs{% endblock title %}
+
+{% block content %}
+<body class="homebg" >
+
+    <div class="container">
+        
+        <center>
+        <h3 style="padding-top: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Welcome Signs As Guestbook</h3>
+        <h5 style="padding-top: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">These are created using a photo from your engagement shoot (or photo of your choice). They all include a frame, date and names.</h5>
+        <img style="height: auto; width: 100%;"id="pricingImage" src="{% static 'img/welcomeSign.jpg' %}" alt="pricing information on watercolor livepaint event">
+        <br><br>
+        <img style="height: auto; width: 80%;"id="pricingImage" src="{% static 'img/welcomeSign1.jpg' %}" alt="sizing information on watercolor livepaint event">
+        </center>
+    </div>
+    
+</body>
+<br><br>
+
+{% endblock content %}
