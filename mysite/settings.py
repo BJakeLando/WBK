@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'pages',
     'accounts',
     'blog',
+    'reviews',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
