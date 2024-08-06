@@ -29,7 +29,7 @@ mimetypes.add_type("text/javascript", ".js", True)
 # SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -121,8 +121,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-CSRF_TRUSTED_ORIGINS = ['https://www.paintedbykarla.com/']
-CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://www.paintedbykarla.com']
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
