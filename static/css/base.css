@@ -76,3 +76,7 @@ body {
 #event_button:hover {
     color: rgb(130, 62, 16);
 }
+
+.lpcards {
+    align-items: center;
+}
