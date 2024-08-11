@@ -34,47 +34,17 @@
     {% block content %}
 <header>
   <center>
-  <h1 style="padding: 30px; text-decoration: underline; font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>{{category.title}}</strong></h1>
+  <h1 style="padding: 30px; font-size: 3.5rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>Live Painting Gallery</strong></h1>
   </center>
 </header>
 
 <body>
-
-  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-        </button>
-      </li>
-    </ul>
-  </div>
-
-
 
 <main>
 
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Live Paint Gallery</h1>
         <a href="{% url 'home' %}" class="btn btn-primary my-2">Home</a>
         <a href="{% url 'add-event' %}" class="btn btn-secondary my-2">Book Event</a>
       </p>
@@ -87,39 +57,165 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
+<!-- Picture 1 -->
+
+      <div class="col">
+        <div class="card shadow-sm lpcards">
+         <img class= "gallery_image" src="{% static 'img/estancia.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+    
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Picture 2 -->
+
       <div class="col">
         <div class="card shadow-sm">
-         <img class= "gallery_image" src="{% static 'img/lp12.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+         <img class= "gallery_image" src="{% static 'img/pt2.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+
+        <!-- Picture 3 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/monserate.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 4 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/monserate2.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 5 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/monserate1.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 6 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/temecula.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
             <div class="d-flex justify-content-between align-items-center">
               
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
             </div>
           </div>
         </div>
       </div>
+
+       <!-- Picture 7 -->
+
+       <div class="col">
+        <div class="card shadow-sm">
+         <img class= "gallery_image" src="{% static 'img/monserate3.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 8 -->
+
       <div class="col">
         <div class="card shadow-sm">
-         <img class= "gallery_image" src="{% static 'img/lp13.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+         <img class= "gallery_image" src="{% static 'img/pt3.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
-            
             <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Picture 9 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/pt4.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Picture 10 -->
+
+       <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/pt6.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 10 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/pt8.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 11 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/pt5.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Picture 12 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+        <img class= "gallery_image" src="{% static 'img/pt9.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col">
         <div class="card shadow-sm">
          <img class= "gallery_image" src="{% static 'img/lp14.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
           </div>
         </div>
       </div>
@@ -128,10 +224,6 @@
          <img class= "gallery_image" src="{% static 'img/lp15.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
           </div>
         </div>
       </div>
@@ -140,10 +232,6 @@
          <img class= "gallery_image" src="{% static 'img/lp16.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
           </div>
         </div>
       </div>
@@ -152,10 +240,6 @@
          <img class= "gallery_image" src="{% static 'img/lp17.jpg'%}" alt="Brunch live painting event in Rancho Santa Fe">
           <div class="card-body">
             
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
           </div>
         </div>
       </div>
@@ -209,11 +293,11 @@
       </div>
       <div class="col">
         <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/LP5.jpg'%}" alt="">
+          <img class= "gallery_image" src="{% static 'img/lp12.jpg'%}" alt="">
           <div class="card-body">
            
             <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary">Grandparents of the Groom, Temecula Wedding</small>
+              
             </div>
           </div>
         </div>

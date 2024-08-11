@@ -31,47 +31,18 @@
     {% block content %}
 <header>
   <center>
-  <h1 style="padding: 30px; text-decoration: underline; font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>{{category.title}}</strong></h1>
+  <h1 style="padding: 30px; font-size: 3.5rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>In Studio Commission Gallery</strong></h1>
   </center>
 </header>
 
 <body>
-
-  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-        </button>
-      </li>
-    </ul>
-  </div>
-
-
 
 <main>
 
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Commissions</h1>
+
         <a href="{% url 'home' %}" class="btn btn-primary my-2">Home</a>
         <a href="{% url 'add-event' %}" class="btn btn-secondary my-2">Book Event</a>
       </p>
@@ -81,141 +52,111 @@
 
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
-
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <div class="col">
-        <div class="card shadow-sm">
-         <img class= "gallery_image" src="{% static 'img/com_9.PNG'%}" alt="commission watercolor painting portait of a dog">
-          <div class="card-body">
-            
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com.JPG'%}" alt="commission watercolor painting portait of a dog">
-          <div class="card-body">
-
-            <div class="d-flex justify-content-between align-items-center">
-              
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-        <img class= "gallery_image" src="{% static 'img/com_2.jpg'%}" alt="commission watercolor painting portrait">
-          <div class="card-body">
-
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com_3.JPG'%}" alt="">
-          <div class="card-body">
       
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
+      <!-- Picture 1 -->
+
+      <div class="col" >
+        <div class="card shadow-sm" style="align-items: center;">
+          <img class= "gallery_image" src="{% static 'img/commission1.jpg'%}" alt="">
+          
         </div>
       </div>
+      
+      <!-- Picture 2 -->
+
       <div class="col">
         <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com_4.jpg'%}" alt="">
+          <img class= "gallery_image" src="{% static 'img/com_5.jpg'%}" alt="">
           <div class="card-body">
-           
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com_13.jpg'%}" alt="">
-          <div class="card-body">
-           
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <!-- Picture 3 -->
 
       <div class="col">
         <div class="card shadow-sm">
           <img class= "gallery_image" src="{% static 'img/com_6.PNG'%}" alt="commission watercolor painting portait of a dog">
           <div class="card-body">
             
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
+            
           </div>
         </div>
       </div>
+
+      <!-- Picture 4 -->
+
       <div class="col">
         <div class="card shadow-sm">
           <img class= "gallery_image" src="{% static 'img/com_7.jpg'%}" alt="commission watercolor painting portrait">
           <div class="card-body">
         
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
+            
           </div>
         </div>
       </div>
+
+      <!-- Picture 5 -->
+
       <div class="col">
         <div class="card shadow-sm">
           <img class= "gallery_image" src="{% static 'img/com_8.jpg'%}" alt="commission watercolor painting portrait">
           <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
+            
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com_1.jpg'%}" alt="commission watercolor painting portrait">
-          <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Picture 6 -->
+     
       <div class="col">
         <div class="card shadow-sm">
           <img class= "gallery_image" src="{% static 'img/com_10.JPG'%}" alt="commission watercolor painting portrait">
           <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
+            
           </div>
         </div>
       </div>
+
+      <!-- Picture 7 -->
+
       <div class="col">
         <div class="card shadow-sm">
-          <img class= "gallery_image" src="{% static 'img/com_11.JPG'%}" alt="commission watercolor painting portrait">
+          <img class= "gallery_image" src="{% static 'img/com_7.jpg'%}" alt="commission watercolor painting portrait">
           <div class="card-body">
+          </div>
+        </div>
+      </div>
 
-            <div class="d-flex justify-content-between align-items-center">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-            </div>
+      <!-- Picture 8 -->
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/com_3.JPG'%}" alt="">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+
+       <!-- Picture 9 -->
+
+       <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/com_12.JPG'%}" alt="">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+
+       <!-- Picture 2 -->
+
+       <div class="col">
+        <div class="card shadow-sm">
+          <img class= "gallery_image" src="{% static 'img/com_11.JPG'%}" alt="">
+          <div class="card-body">
           </div>
         </div>
       </div>
