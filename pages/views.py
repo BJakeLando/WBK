@@ -18,6 +18,10 @@ class LivePaintView(TemplateView):
 class CommissionsView(TemplateView):
     template_name = 'pages/commissions.html'
 
+
+class PetsView(TemplateView):
+    template_name = 'pages/pets.html'
+
 class PrintsView(TemplateView):
     template_name = 'pages/prints.html'
 

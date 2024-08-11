@@ -10,6 +10,7 @@ from .views import (
     BioView,
     WelcomeView,
     GalleryView,
+    PetsView,
 
 )
 
@@ -19,6 +20,7 @@ urlpatterns =[
     path("pricing/", PricingView.as_view(), name ='pricing'),
     path("livepaint/", LivePaintView.as_view(), name ='livepaint'),
     path("commissions/", CommissionsView.as_view(), name ='commissions'),
+    path("pets/", PetsView.as_view(), name ='pets'),
     path("prints/", PrintsView.as_view(), name ='prints'),
     path("bio/", BioView.as_view(), name ='bio'),
     path("welcome/", WelcomeView.as_view(), name ='welcome'),
