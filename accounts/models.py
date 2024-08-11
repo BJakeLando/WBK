@@ -5,14 +5,17 @@ class LivePaintEvent(models.Model):
     name = models.CharField('Client Name',max_length=128)
     phone = models.CharField('Phone',max_length=60)
     event_date = models.DateField('Event Date')
-    venue = models.CharField('Venue Location', max_length=128)
+    venue = models.CharField('Venue Location (City, St.)', max_length=128)
     guest_count= models.CharField('Estimated Guest Count', max_length=128)
     reference = models.CharField('How Did You Hear About Us?', max_length=128)
     wedding_planner =  models.CharField('Event Planner Name',max_length=128)
-    description = models.TextField(max_length=255)
     email = models.EmailField('Email', max_length=256) 
-    source = models.TextField(max_length=555)
+    budget = models.CharField('Estimated Budget', max_length=555)
+    choice = models.CharField('Guest Painting', max_length=555)
     instagram = models.CharField('ig',max_length=128)
+    typeofclient = models.CharField('typeofclient',max_length=128)
+    description = models.TextField('Theme', max_length=1200)
+
 
     def __str__(self):
         return self.name
