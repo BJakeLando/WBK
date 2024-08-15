@@ -6,7 +6,7 @@ class PostListView(ListView):
     template_name= "reviews/list.html"
     model = Review
 
-    def list_reviews(self,name):
+    def list_reviews(self):
         issue_list = Review.objects.all().order_by('created_on')
         return issue_list
           
