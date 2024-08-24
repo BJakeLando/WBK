@@ -171,3 +171,10 @@ EMAIL_HOST_PASSWORD = 'zjdfuhtfongwbsfy'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMBED_VIDEO_BACKENDS = (
+    'embed_video.backends.SoundCloudBackend',
+    'embed_video.backends.VimeoBackend',
+    # 'embed_video.backends.YoutubeBackend',
+    'myapp.video_backends.SecureYoutubeBackend',
+)
