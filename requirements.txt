@@ -6,7 +6,6 @@ distlib==0.3.6
 dj-database-url==2.1.0
 Django==4.2.2
 django-cors-headers==4.4.0
-django-embed-video==1.4.10
 filelock==3.9.0
 idna==3.8
 Pillow==9.4.0
