@@ -4,7 +4,6 @@ from .models import MyClientUser
 from django.contrib.auth.models import Group,User
 
 admin.site.unregister(Group)
-admin.site.register(LivePaintEvent)
 admin.site.register(MyClientUser)
 
 
@@ -22,3 +21,10 @@ class UserAdmin(admin.ModelAdmin):
     # Just display username fields on admin page
     fields = ["username"]
     inlines = [MyClientUser]
+
+@admin.register(LivePaintEvent)
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ('name','venue', 'event_date', 'email', 'budget', 'typeofclient',)
+    ordering = ('event_date',)
+    search_fields = ('name', 'venue', 'event_date',)
+    list_filter = ('name', 'venue', 'event_date','budget',)
