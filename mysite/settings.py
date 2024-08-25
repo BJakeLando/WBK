@@ -81,7 +81,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -171,9 +171,3 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# EMBED_VIDEO_BACKENDS = (
-#     'embed_video.backends.SoundCloudBackend',
-#     'embed_video.backends.VimeoBackend',
-#     # 'embed_video.backends.YoutubeBackend',
-#     'pages.video_backends.SecureYoutubeBackend',
-# )
