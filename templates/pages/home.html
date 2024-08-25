@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %}
-{% load embed_video_tags %}
+
 {% load static %}
 
 <!doctype html>
@@ -94,20 +94,7 @@
           <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Recent Work</b></strong></h3>
           <br>
           <ul>
-            <p><div style="float:right;">
-
-              {% video video.url as my_video %}
-              URL: {{ my_video.url }}
-              Backend: {{ my_video.backend }}
-
-              {% video my_video "large" %}
-            {% endvideo %}
-
-
-              {% for item in videos %}
-                <div style="width:75%;">{% video item.url '400x550' %}{% video item.backend %}</div>
-              {% endfor %}
-              </div></p><br
+  
             <p><a href="{% url 'livepaint'  %}"><button class="btn btn-lg">Live Painting</button></a></p>
             <p><a href="{% url 'commissions'  %}"><button class="btn btn-lg">In Studio Commissions</button></a></p>
            
