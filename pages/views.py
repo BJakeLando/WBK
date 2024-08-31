@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
 from django.views.generic import TemplateView
-from .models import Video
+
 
 def home(request):
-    videos = Video.objects.all()
 
-    return render(request, 'pages/home.html', context = {'videos': videos})
+
+    return render(request, 'pages/home.html')
 
 class AboutView(TemplateView):
     template_name = 'pages/about.html'
