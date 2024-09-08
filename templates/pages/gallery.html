@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Post{% endblock title %}
+{% block title %}Gallery{% endblock title %}
 
 {% block content %}
 
@@ -42,9 +42,10 @@
 
 
     <div>
-        <button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'commissions' %}">In Studio Commissions</a></button>
-        <button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'livepaint' %}">Live Painting</a></button>
-        <button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'pets' %}">Pets</a></button>
+      
+        <p><button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'commissions' %}">In Studio Commissions</a></button></p>
+        <p><button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'livepaint' %}">Live Painting</a></button></p>
+        <p><button style="background-color: rgb(217, 193, 155);" type="button" class="btn btn-lg"><a href="{% url 'pets' %}">Pets</a></button></p>
     </div>
    </center>
     
