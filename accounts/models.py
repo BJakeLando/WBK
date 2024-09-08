@@ -15,6 +15,9 @@ class LivePaintEvent(models.Model):
     instagram = models.CharField('ig',max_length=128)
     typeofclient = models.CharField('typeofclient',max_length=128)
     description = models.TextField('Theme', max_length=1200)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+   
 
 
     def __str__(self):
