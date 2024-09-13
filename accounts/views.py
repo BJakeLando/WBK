@@ -20,7 +20,7 @@ def add_event(request):
     event_list = LivePaintEvent.objects.all()
     if request.method == 'POST':
         form = EventForm(request.POST)
-        mysiteurl = 'https://wbk-production.up.railway.app/admin/accounts/livepaintevent/'
+        mysiteurl = 'https:www.paintedbykarla.com/admin/accounts/livepaintevent/'
         message_name = 'NEW CLIENT SUBMITTED'
         message_email = 'Default Email'
         message = 'A New Client has filled out the form on your website!' + '\n' + mysiteurl
