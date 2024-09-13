@@ -25,6 +25,6 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(LivePaintEvent)
 class PropertyAdmin(admin.ModelAdmin):
     list_display = ('created_on', 'name','venue', 'event_date', 'email', 'budget', 'typeofclient',)
-    ordering = ('created_on',)
+    ordering = ('-created_on',)
     search_fields = ('name', 'venue', 'event_date',)
     list_filter = ('name', 'venue', 'event_date','budget',)
