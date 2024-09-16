@@ -11,8 +11,8 @@ def home(request):
 class AboutView(TemplateView):
     template_name = 'pages/about.html'
 
-class PricingView(TemplateView):
-    template_name = 'pages/pricing.html'
+# class PricingView(TemplateView):
+#     template_name = 'pages/pricing.html'
 
 class LivePaintView(TemplateView):
     template_name = 'pages/livepaint.html'
