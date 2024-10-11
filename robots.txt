@@ -1,0 +1,11 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+Disallow: /accounts/success.html
+Disallow: /css/
+Disallow: /js/
+Disallow: /ajax/
+Disallow: /api/
+
+User-agent: *
+Allow: /
+

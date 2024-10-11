@@ -1,3 +1,4 @@
+apache-server==0.0.1
 asgiref==3.7.2
 autopep8==2.0.4
 certifi==2022.9.24
@@ -10,6 +11,7 @@ django-embed-video==1.4.10
 filelock==3.9.0
 gunicorn==23.0.0
 idna==3.8
+mysql-connector==2.2.9
 packaging==24.1
 Pillow==9.4.0
 platformdirs==3.1.1
