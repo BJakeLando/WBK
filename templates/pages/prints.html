@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+  
+
+{% block title %}Prints{% endblock title %}
+{% block content %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,14 +12,11 @@
     <meta name="description" content="Artist Karla Lubbert gallery of prints of watercolor paintings.">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-  
-
-{% block title %}Prints{% endblock title %}
 
     
   </head>
   <body>
-    {% block content %}
+
 <header>
   <center>
   <h1 style="padding: 30px; text-decoration: underline; font-size: 65px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>{{category.title}}</strong></h1>
