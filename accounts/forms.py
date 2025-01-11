@@ -6,13 +6,14 @@ from .models import LivePaintEvent
 class EventForm(ModelForm):
     class Meta:
         model = LivePaintEvent
-        fields = ('name','phone','email','event_date','venue','guest_count','wedding_planner','instagram','budget','choice','typeofclient', 'description',)
+        fields = ('name','phone','email','event_date','venue','reference','guest_count','wedding_planner','instagram','budget','choice','typeofclient', 'description',)
         labels = {
             'name':'', 
             'phone':'',
             'email':'',
             'event_date':'',
             'venue':'',
+            'reference':'',
             'guest_count':'',
             'reference':'',
             'wedding_planner':'',
@@ -33,6 +34,7 @@ class EventForm(ModelForm):
             'email':forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Email'}),
             'event_date':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Event Date (MO/DD/YYYY)'}),
             'venue':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Venue Name & Location (City, St)'}),
+            'reference':forms.TextInput(attrs={'class': 'form-control','placeholder': 'How did you about us?'}),
             'guest_count':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Estimated Guest Count'}),
             'reference':forms.TextInput(attrs={'class': 'form-control','placeholder': 'How did you hear about us?'}),
             'wedding_planner':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Event Coordinator or Planner Name'}),
