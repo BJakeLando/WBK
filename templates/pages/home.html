@@ -49,12 +49,36 @@
   <center>
   <h1 style="padding:2rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Capturing Memories With a Brushstroke</h1>
   
-  <img style="margin-bottom: 2rem; height:auto; width: 100%;" src="{% static 'img/table.jpg' %}" alt="karla lubbert doing watercolor painting">
+  <img style="margin-bottom: 2rem; height:auto; width: 75%;" src="{% static 'img/table.jpg' %}" alt="karla lubbert doing watercolor painting">
   <br>
-  <h2>About Karla</h2>
 
-  <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;">I like to think that creating art for you is a privilege, but mostly I love to see how your special moments come to life in a new way! Karla is known for her very distinctive fashion-based figure & her detailed approach to faces on watercolor Portraits! As a young artist, she learned from NYC Fashion editors & professors at the Art Institute. Excelling in the illustration department... <strong><a style = "color:rgb(93, 85, 85);" href="{% url 'bio' %}">Read More</a></strong>
+  
+ 
 </center>
+
+<div>
+  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Getting Started</b></strong></h3>
+        <br>
+
+        <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" class="card-text mb-auto">
+          <li>Fill out online booking form.</li>
+          <li>Read and sign contract agreement.</li>
+          <li>Send deposit to save your date.</li>
+        </ol>
+        <br>
+        <p><a href="{% url 'add-event' %}"><button class="btn btn-lg">Book Your Date!</button></a></p>
+        
+      </div>
+
+    
+    <div class="col-auto d-none d-lg-block">
+     
+
+    </div>
+  </div>
+</div>
 <br>
 <center>
   <img style="height: auto; width: 95%; border-radius: 10%;"  src="{% static 'img/home_pic.jpg' %}" alt="Groom elegantly dips his bride and kisses her">
@@ -62,29 +86,7 @@
   <br>
 
   <div class="row mb-2"> <br>
-    <div>
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Getting Started</b></strong></h3>
-          <br>
-
-          <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" class="card-text mb-auto">
-            <li>Fill out online booking form.</li>
-            <li>Read and sign contract agreement.</li>
-            <li>Send deposit to save your date.</li>
-          </ol>
-          <br>
-          <p><a href="{% url 'add-event' %}"><button class="btn btn-lg">Book Your Date!</button></a></p>
-          
-        </div>
-
-        
-        <div class="col-auto d-none d-lg-block">
-         
-
-        </div>
-      </div>
-    </div>
+    
     <div>
       
         
