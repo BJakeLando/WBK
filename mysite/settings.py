@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@viaduct.proxy.rlwy.net:30894/railway"
+DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@postgres.railway.internal:5432/railway"
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
