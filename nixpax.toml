@@ -1,0 +1,14 @@
+# Define the providers (Railway uses Docker)
+providers = ["python"]
+
+# Setup phase: Install system dependencies
+[phases.setup]
+nixPkgs = ["python-3.8", "postgresql_16", "gcc"]
+
+# Build phase: Install Python dependencies
+[phases.build]
+cmds = ["pip install -r requirements.txt"]
+
+# Start phase: Run Django
+[start]
+cmd = "python manage.py migrate && gunicorn your_project.wsgi:application"
