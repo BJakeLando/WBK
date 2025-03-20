@@ -5,6 +5,7 @@ class LivePaintEvent(models.Model):
     name = models.CharField('Client Name',max_length=128)
     phone = models.CharField('Phone',max_length=60)
     event_date = models.DateField('Event Date')
+    venue_name = models.CharField('Venue Name', max_length=128)
     venue = models.CharField('Venue Location (City, St.)', max_length=128)
     guest_count= models.CharField('Estimated Guest Count', max_length=128)
     reference = models.CharField('How Did You Hear About Us?', max_length=128)
