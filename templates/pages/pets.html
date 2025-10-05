@@ -1,110 +1,147 @@
 {% extends 'base.html' %}
-{% block title %}Pet Gallery{% endblock title %}
+{% block title %}Pet Portrait Gallery | {{ business_name }}{% endblock title %}
 {% load static %}
+
+{% block head_extra %}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* All previous styles remain */
+        body {
+            background-color: #f8f7f4; 
+        }
+        
+        .gallery-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #4a3e35;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-intro { /* Added based on previous suggestion for context */
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 600px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styling the image card for a clean, borderless look */
+        .art-card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .art-card:hover {
+            transform: scale(1.03); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        /* NEW: Class for the large header image to ensure max-width and centering on all devices */
+        .header-image {
+            max-height: 500px; /* Prevent it from getting too large on huge screens */
+            object-fit: contain; /* Ensure the whole image is visible, no cropping */
+            margin-bottom: 2rem;
+            border-radius: 0.5rem; /* Soft rounded corners for elegance */
+        }
+        /* Call to Action Button Styling */
+        .btn-primary-custom {
+            background-color: #7b685c;
+            border-color: #7b685c;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #5c4e44;
+            border-color: #5c4e44;
+        }
+
+        .btn-secondary-custom {
+            background-color: transparent;
+            border: 1px solid #7b685c;
+            color: #7b685c;
+        }
+        
+        .btn-secondary-custom:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+{% endblock head_extra %}
+
 {% block content %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Artist Karla Lubbert gallery for watercolor portraits of pets like dogs.">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Pet Gallery</title>
-    </head>
 
-
-
-    
-  </head>
-  <body>
-    <header>
-      <center>
-      <h1 style="padding: 30px; font-size: 3.5rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>Pet Gallery</strong></h1>
-      </center>
-    </header>
-    
-    <body>
-
-    <main>
+<main>
     
     <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <a href="{% url 'home' %}" class="btn btn-primary my-2">Home</a>
-            <a href="{% url 'add-event' %}" class="btn btn-secondary my-2">Book Event</a>
-          </p>
+      <div class="row py-lg-3">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1 style= "font-family: cursive;" class="gallery-heading">Pet Portrait Gallery</h1><br>
+            
+            <img 
+                src="{% static 'img/homeshadow.jpg' %}" 
+                alt="A beautiful example of a pet portrait watercolor"
+                class="img-fluid d-block mx-auto header-image" 
+            > <br>
+            <p style= "font-family: cursive;" class="gallery-intro">
+               Add a portrait of your pet to your collection
+            </p>
+            <br>
+            
+            <p>
+                <a href="{% url 'add-event' %}" class="btn btn-primary-custom my-2 px-4">Inquire About a Commission</a>
+                <a href="{% url 'home' %}" class="btn btn-secondary-custom my-2">View Wedding & Live Painting Art</a>
+            </p>
         </div>
       </div>
     </section>
     
-    <div class="album py-5 bg-body-tertiary">
+    <div class="album py-5">
       <div class="container">
-    <!-- Picture 1 -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          
+          {% for image_path in all_pet_images %} 
           <div class="col">
-            <div class="card shadow-sm">
-             <img class= "gallery_image" src="{% static 'img/com_9.PNG'%}" alt="commission watercolor painting portait of a dog">
-              <div class="card-body">
-                
-                <div class="d-flex justify-content-between align-items-center">
-                  
-                  <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-                </div>
-              </div>
+            <div class="card art-card">
+             <img class="gallery-image" src="{% static image_path %}" alt="commission watercolor painting portait of a dog">
+             </div>
+          </div>
+          {% endfor %} 
+          <div class="col">
+            <div class="card art-card">
+             <img class= "gallery-image" src="{% static 'img/com_9.PNG'%}" alt="commission watercolor painting portait of a dog">
             </div>
           </div>
-          <!-- Picture 2  -->
           <div class="col">
-            <div class="card shadow-sm">
-              <img class= "gallery_image" src="{% static 'img/com.JPG'%}" alt="commission watercolor painting portait of a dog">
-              <div class="card-body">
-    
-                <div class="d-flex justify-content-between align-items-center">
-                  
-                  <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-                </div>
-              </div>
+            <div class="card art-card">
+              <img class= "gallery-image" src="{% static 'img/com.JPG'%}" alt="commission watercolor painting portait of a dog">
             </div>
           </div>
-          <!-- Picture 3 -->
           <div class="col">
-            <div class="card shadow-sm">
-            <img class= "gallery_image" src="{% static 'img/com_2.jpg'%}" alt="commission watercolor painting portrait">
-              <div class="card-body">
-    
-                <div class="d-flex justify-content-between align-items-center">
-                  <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-                </div>
-              </div>
+            <div class="card art-card">
+            <img class= "gallery-image" src="{% static 'img/com_2.jpg'%}" alt="commission watercolor painting portrait">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card art-card">
+              <img class= "gallery-image" src="{% static 'img/com_1.jpg'%}" alt="commission watercolor painting portrait">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card art-card">
+              <img class= "gallery-image" src="{% static 'img/com_4.jpg'%}" alt="commission watercolor painting portrait of a cat">
             </div>
           </div>
 
-          <!-- Picture 4 -->
-        
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class= "gallery_image" src="{% static 'img/com_1.jpg'%}" alt="commission watercolor painting portrait">
-              <div class="card-body">
-    
-                <div class="d-flex justify-content-between align-items-center">
-                  <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-                </div>
-              </div>
-            </div>
-            <!-- Picture 5 -->
-            <div class="col">
-                <div class="card shadow-sm">
-                  <img class= "gallery_image" src="{% static 'img/com_4.jpg'%}" alt="">
-                  <div class="card-body">
-                   
-                    <div class="d-flex justify-content-between align-items-center">
-                      <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="text-body-secondary"></small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
         </div>
       </div>
     </div>
@@ -115,13 +152,9 @@
     <footer class="text-body-secondary py-5">
     <div class="container">
       <p class="float-end mb-1">
-        <a href="#">Back to top</a>
+        <a href="#" style="color: #7b685c;">Back to top</a>
       </p>
     </div>
     </footer>
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
       
-    {% endblock %}  
-  </body>
-</html>
+    {% endblock content %}

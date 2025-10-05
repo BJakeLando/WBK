@@ -1,54 +1,86 @@
 {% extends 'base.html' %}
 
-{% block title %}Reviews{% endblock title %}
+{% block title %}Client Testimonials | {{ business_name }}{% endblock title %}
+
+{% block head_extra %}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles for an Elegant Look */
+        body {
+            /* Soft, light off-white or very light grey for an elegant background */
+            background-color: #f8f7f4; 
+        }
+
+        .main-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; /* Larger and more impactful */
+            font-weight: 700;
+            color: #333; /* Darker text for sophistication */
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0dcd7; /* Subtle separator */
+        }
+
+        .review-card {
+            border: 1px solid #e0dcd7;
+            border-radius: 0.5rem; /* Slightly softer corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle lift */
+            margin-bottom: 2.5rem; /* More space between reviews */
+            background-color: white; /* Make the card pop against the background */
+            padding: 2rem;
+        }
+
+        .review-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #555; /* A bit softer than the main header */
+        }
+        
+        .review-body {
+            font-family: 'Roboto', sans-serif; /* Clean, highly readable font for body text */
+            font-weight: 300;
+            line-height: 1.7; /* Increased line spacing for readability */
+            font-size: 1.1rem;
+            color: #333;
+            font-style: italic; /* Testimonials often look nice in italics */
+        }
+
+        /* Star Rating Style (using a placeholder for elegance) */
+        .star-rating {
+            color: #daa520; /* A soft gold or brass color */
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+{% endblock head_extra %}
 
 {% block content %}
 
-
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head>
-
-
-
-
-  </head>
-  <body>
-
-
-
-<main>
-  <br><br>
-    <center><h1 style="padding: 10px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Reviews</h1>
-      <br><br>
-    
-    <br><br>
-    </center>
-    
-    <br><br>
-    {% for review in review_list %}
-      <div class="card">
-        <div class="card-header">
-          {{ review.name }}
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>{{ review.body }}</p> 
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <header class="text-center mb-5 mt-4">
+                <h1 class="main-heading">Kind Words From Our Couples</h1>
+                <p class="lead text-muted">See what past wedding clients have said about their experience.</p>
+            </header>
             
-          </blockquote>
-        </div>
-      </div>
-      <br><br>
-    {% endfor %}
-      
-
-
-
-    <!-- START THE FEATURETTES -->
-
-
+            {% for review in review_list %}
+                <div class="review-card">
+                    <div class="star-rating">
+                        ★★★★★
+                    </div>
+                    
+                    <blockquote class="blockquote mb-0">
+                        <p class="review-body">“{{ review.body }}”</p> 
+                        <footer class="blockquote-footer mt-3">
+                            <cite class="review-name">{{ review.name }}</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            {% endfor %}
+            </div>
+    </div>
 </main>
 
-{% endblock %}
-    </body>
-</html>
+{% endblock content %}
