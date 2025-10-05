@@ -27,9 +27,12 @@ mimetypes.add_type("text/javascript", ".js", True)
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
+
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.paintedbykarla.com']
 
@@ -86,6 +89,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@viaduct.proxy.rlwy.net:30894/railway"
 
 DATABASES = {
@@ -141,12 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS= [str(BASE_DIR.joinpath('static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 
 
 # Default primary key field type
@@ -154,7 +156,6 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
-
 
 
 #EMAIL_HOST = 'smtp.gmail.com'
