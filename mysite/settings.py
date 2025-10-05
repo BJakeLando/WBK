@@ -157,16 +157,22 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
 
-# Alternative Email Configuration (Use this ONLY if 587 fails)
+## settings.py
+
+# ... (Previous settings)
+
+# Alternative Email Configuration (Now Standard TLS Configuration)
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'karlaportraits@gmail.com'
 EMAIL_HOST_PASSWORD = 'lsbu vler verz vaiw' 
-EMAIL_PORT = 465             # Must be an integer for port 465 (SSL)
-EMAIL_USE_TLS = False        # Must be False for port 465
-EMAIL_USE_SSL = True         # Must be True for port 465
+EMAIL_PORT = 587             # MUST be 587 for TLS
+EMAIL_USE_TLS = True         # MUST be True for port 587
+EMAIL_USE_SSL = False        # MUST be False when using EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 DEFAULT_FROM_EMAIL = 'karlaportraits@gmail.com'
+
+# ... (Rest of your settings)
 
 LOGGING = {
     'version': 1,
