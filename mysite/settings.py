@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.paintedbykarla.com']
 
@@ -157,13 +157,16 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
 
+# Alternative Email Configuration (Use this ONLY if 587 fails)
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'karlaportraits@gmail.com'
+EMAIL_HOST_PASSWORD = 'lsbu vler verz vaiw' 
+EMAIL_PORT = 465             # Must be an integer for port 465 (SSL)
+EMAIL_USE_TLS = False        # Must be False for port 465
+EMAIL_USE_SSL = True         # Must be True for port 465
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'karlaportraits@gmail.com'
-#EMAIL_HOST_PASSWORD = 'zjdfuhtfongwbsfy'
-#EMAIL_PORT = '587'
-#EMAIL_USE_TLS = True
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'karlaportraits@gmail.com'
 
 LOGGING = {
     'version': 1,
