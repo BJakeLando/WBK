@@ -5,14 +5,12 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import LivePaintEvent
 from django.urls import reverse_lazy
 from .forms import EventForm
-from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
-from django.conf import settings
+
 
 class SignupView(CreateView):
     form_class = UserCreationForm
     template_name= "registration/signup.html"
-
 
 
 def add_event(request):
