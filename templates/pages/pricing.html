@@ -1,30 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Pricing{% endblock title %}
+{% block title %}Pricing - Watercolors By Karla{% endblock %}
 
 {% block content %}
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Artist Karla Lubbert that paints live guest portraits at weddings and other events.">
-    <meta name="author" content="Brandon Landers">
-    <meta name="generator" content="">
-</head>
 
-<body class="homebg" >
-
-
-
-    <div class="container">
-        
-        <center>
-        <h3 style="padding-top: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">PRICING BELOW IS FOR GUEST PAINTING PACKAGES</h3>
-        <img style="height: auto; width: 100%;"id="pricingImage" src="{% static 'img/newPricing1.jpg' %}" alt="pricing information on watercolor livepaint event">
-        </center>
+<!-- Hero / Page Header -->
+<section class="bg-light py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-light" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            Live Wedding & Event Painting Packages
+        </h1>
+        <p class="lead text-muted">
+            Pricing below is for guest portrait painting packages at your special event
+        </p>
     </div>
-    
-</body>
-<br><br>
+</section>
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <!-- Pricing Image Card -->
+        <div class="col-lg-10 col-xl-8">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                <div class="card-body p-0">
+                    <img src="{% static 'img/newPricing1.jpg' %}" 
+                         class="img-fluid w-100" 
+                         alt="Watercolors By Karla - Live Event Painting Pricing"
+                         style="max-height: 85vh; object-fit: contain; background-color: #f8f9fa;">
+                </div>
+
+                <!-- Optional elegant caption below the image -->
+                <div class="card-footer bg-white border-0 text-center py-4">
+                    <p class="text-muted mb-0">
+                        <em>All packages include travel within San Diego County • Custom quotes available for destinations outside the area</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Optional CTA section -->
+    <div class="row mt-5">
+        <div class="col text-center">
+            <h4>Ready to add live art to your big day?</h4>
+            <a href="{% url 'add-event' %}" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">
+                <i class="fas fa-palette me-2"></i>Book Your Event
+            </a>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock content %}

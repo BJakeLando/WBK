@@ -1,167 +1,122 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Commissions{% endblock title %}
+{% block title %}In-Studio Commissions - Watercolors By Karla{% endblock %}
+
 {% block content %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Artist Karla Lubbert gallery of commission water color paintings.">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
 
-    
-  </head>
-  <body>
-
-<header>
-  <center>
-  <h1 style="padding: 30px; font-size: 3.5rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);"><strong>In Studio Commission Gallery</strong></h1>
-  </center>
-</header>
-
-<body>
-
-<main>
-
-<section class="py-5 text-center container">
-  <div class="row py-lg-5">
-    <div class="col-lg-6 col-md-8 mx-auto">
-
-        <a href="{% url 'home' %}" class="btn btn-primary my-2">Home</a>
-        <a href="{% url 'add-event' %}" class="btn btn-secondary my-2">Book Event</a>
-      </p>
+<!-- Hero Section -->
+<section class="bg-light py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-light" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #81634e;">
+            In-Studio Commission Gallery
+        </h1>
+        <p class="lead text-muted col-lg-8 mx-auto">
+            Timeless watercolor portraits painted with care in the studio
+        </p>
     </div>
-  </div>
 </section>
 
-<div class="album py-5 bg-body-tertiary">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      
-      <!-- Picture 1 -->
-
-      <div class="col" style="margin: 0.1px" >
-        
-          <img class= "gallery_image" src="{% static 'img/italy_couple.jpg'%}" alt="">
-          
-      </div>
-      
-      <!-- Picture 2 -->
-
-      <div class="col" style="margin: 0.1px">
-        
-          <img class= "gallery_image" src="{% static 'img/com_5.jpg'%}" alt="">
-        
-      </div>
-
-    <!-- Picture 3 -->
-     
-
-      <div class="col">
-        
-          <img class= "gallery_image" src="{% static 'img/com_6.PNG'%}" alt="commission watercolor painting portait of a dog">
-          
-      </div>
-
-      <!-- Picture 4 -->
-
-      <div class="col">
-        
-          <img class= "gallery_image" src="{% static 'img/com_7.jpg'%}" alt="commission watercolor painting portrait">
-          
-      </div>
-
-      <!-- Picture 5 -->
-
-      <div class="col">
-
-          <img class= "gallery_image" src="{% static 'img/com_8.jpg'%}" alt="commission watercolor painting portrait">
-      
-
-      </div>
-
-      <!-- Picture 6 -->
-     
-      <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/com_10.JPG'%}" alt="commission watercolor painting portrait">
-          <div class="card-body">
-
-            
-          </div>
-        </div>
-      </div>
-
-      <!-- Picture 7 -->
-
-      <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/com_7.jpg'%}" alt="commission watercolor painting portrait">
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-
-      <!-- Picture 8 -->
-
-      <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/com_3.JPG'%}" alt="">
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-
-       <!-- Picture 9 -->
-
-       <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/com_12.JPG'%}" alt="">
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-
-       <!-- Picture 10 -->
-
-       <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/com_11.JPG'%}" alt="">
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-
-      <!-- Picture 11 -->
-
-      <div class="col">
-        <div class="">
-          <img class= "gallery_image" src="{% static 'img/commission1.jpg'%}" alt="">
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-</main>
-
-<footer class="text-body-secondary py-5">
 <div class="container">
-  <p class="float-end mb-1">
-    <a href="#">Back to top</a>
-  </p>
-</div>
-</footer>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Gallery Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
 
-  
-{% endblock %}  
-</body>
-</html>
+        <!-- Reusable image item (repeat for each photo) -->
+        {% comment %} Add as many as you want – just copy/paste one of these blocks {% endcomment %}
+
+        <div class="col">
+            <a href="{% static 'img/italy_couple.jpg' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/italy_couple.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_5.jpg' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_5.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_6.PNG' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_6.PNG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Pet portrait watercolor">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_7.jpg' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_7.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_8.jpg' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_8.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_10.JPG' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_10.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_3.JPG' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_3.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_12.JPG' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_12.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/com_11.JPG' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/com_11.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/commission1.jpg' %}" data-bs-toggle="lightbox" data-gallery="commissions">
+                <img src="{% static 'img/commission1.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Commissioned watercolor portrait">
+            </a>
+        </div>
+
+        <!-- Add more images exactly like this whenever you want -->
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center my-5 py-5">
+        <h4>Ready for your own custom watercolor portrait?</h4>
+        <a href="{% url 'add-event' %}" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">
+            Commission Your Painting
+        </a>
+    </div>
+</div>
+
+<!-- Lightbox CSS & JS (already included via MDB, but we activate it) -->
+<style>
+    .gallery-thumb {
+        object-fit: cover;
+        height: 280px;
+        transition: transform 0.3s ease;
+        cursor: zoom-in;
+    }
+    .gallery-thumb:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = new bootstrap.Lightbox(document.querySelectorAll('[data-bs-toggle="lightbox"]'), {
+            keyboard: true,
+            backdrop: true
+        });
+    });
+</script>
+
+{% endblock content %} 
