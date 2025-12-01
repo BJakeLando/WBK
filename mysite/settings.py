@@ -162,15 +162,25 @@ LOGIN_REDIRECT_URL = "home"
 # ... (Previous settings)
 
 # Alternative Email Configuration (Now Standard TLS Configuration)
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'karlaportraits@gmail.com'
-EMAIL_HOST_PASSWORD = 'lsbu vler verz vaiw' 
-EMAIL_PORT = 587             # MUST be 587 for TLS
-EMAIL_USE_TLS = True         # MUST be True for port 587
-EMAIL_USE_SSL = False        # MUST be False when using EMAIL_USE_TLS = True
+# 💡 NEW EMAIL CONFIGURATION: Hotmail/Outlook (SMTP Office 365)
+EMAIL_HOST = 'smtp.office365.com'  # Standard host for Microsoft services
+EMAIL_PORT = 587                  # Standard port for TLS
+EMAIL_USE_TLS = True              # Use TLS
+EMAIL_USE_SSL = False             # Do not use SSL with port 587
+
+# 💡 ADD THIS LINE
+EMAIL_TIMEOUT = 10
+
+# Use your Hotmail email and the App Password
+EMAIL_HOST_USER = 'WatercolorsByKarla@hotmail.com'
+# IMPORTANT: Replace the dummy password below with a Microsoft App Password
+# This ensures it works in production without being blocked.
+EMAIL_HOST_PASSWORD = 'pdahtghobcrgilou' 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-DEFAULT_FROM_EMAIL = 'karlaportraits@gmail.com'
+# Set the default sender to match the account
+DEFAULT_FROM_EMAIL = 'WatercolorsByKarla@hotmail.com'
 
 # ... (Rest of your settings)
 

@@ -41,20 +41,27 @@ def add_event(request):
         form = EventForm(request.POST)
         mysiteurl = 'https:www.paintedbykarla.com/admin/accounts/livepaintevent/'
         message_name = 'NEW CLIENT FORM SUBMITTED'
-        sender_email = settings.DEFAULT_FROM_EMAIL # Use DEFAULT_FROM_EMAIL
+        # The sender email will be pulled from settings.DEFAULT_FROM_EMAIL
+        sender_email = settings.DEFAULT_FROM_EMAIL 
         message = 'Hey baba, a new client just filled out the form. Okay bye I love you! ' + '\n' + mysiteurl
         
         if form.is_valid():
             form.save()
             
-            # 💡 THE FIX: Start the email sending in a new thread
+            # Start the email sending in a new thread
             email_thread = threading.Thread(
                 target=send_email_in_background,
-                args=(message_name, message, sender_email, ['karlaportraits@gmail.com'])
+                args=(
+                    message_name, 
+                    message, 
+                    sender_email, 
+                    # 💡 CORRECTED RECIPIENT LIST
+                    ['WatercolorsByKarla@hotmail.com'] 
+                )
             )
             email_thread.start()
             
-            # The main thread returns the success page IMMEDIATELY.
+            # Request returns instantly
             return render(request, 'accounts/success.html',
                   {'event_list': event_list})
     else:
@@ -62,9 +69,7 @@ def add_event(request):
         if 'submitted' in request.GET:
             submitted = True
 
-    return render(request, 'accounts/add_event.html',
-                  {'form': form,'submitted': submitted})
-
+    return render(request, 'accounts/add_event.html', {'form': form,'submitted': submitted})
 
 
 
