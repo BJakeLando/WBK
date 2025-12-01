@@ -1,403 +1,147 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Live Paint Gallery{% endblock title %}
+
+{% block title %}Live Event Painting Gallery - Watercolors By Karla{% endblock %}
+
 {% block content %}
 
+<!-- Hero Section -->
+<section class="bg-light py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-light" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #81634e;">
+            Live Event Painting Gallery
+        </h1>
+        <p class="lead text-muted col-lg-8 mx-auto">
+            Real moments, painted live, forever remembered in watercolor
+        </p>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Gallery Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+        <!-- Just copy/paste one of these blocks every time you add a new photo -->
+        <div class="col">
+            <a href="{% static 'img/estancia.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/pink_dress.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/pink_dress.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Bride in pink dress">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/lp2025_2.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/lp2025_2.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Monserate Winery live painting">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/lp2025_1.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/lp2025_1.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/monserate.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/monserate.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Monserate Winery">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/monserate2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/monserate2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Artist painting outdoors">
+            </a>
+        </div>
+
+        <!-- Add the rest of your images exactly like this (I’ve included them all below) -->
+
+        <div class="col">
+            <a href="{% static 'img/monserate1.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/monserate1.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/temecula.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/temecula.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Avensole Winery Temecula">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/monserate3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/monserate3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Karla painting live">
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% static 'img/karla_painting.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/karla_painting.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Couple portrait">
+            </a>
+        </div>
+
+        <!-- Continue with all the rest — I’ve added every single one you had: -->
+        <div class="col"><a href="{% static 'img/pt4.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt4.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt6.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt6.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt8.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt8.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt5.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt5.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt9.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt9.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp14.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp14.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_5.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_5.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp16.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp16.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp17.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp17.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp100.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp100.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp99.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp99.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp98.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp98.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp97.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp97.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp12.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp12.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_6.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_6.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/LP7.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP7.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_3.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_3.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/LPussy.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LPussy.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/bridesmaids.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/bridesmaids.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/mustachio.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/mustachio.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/LP1.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP1.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/LP2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/LP3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center my-5 py-5">
+        <h4>Bring the magic of live watercolor to your wedding or event</h4>
+        <a href="{% url 'add-event' %}" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">
+            <i class="fas fa-palette me-2"></i>Book Your Live Painter
+        </a>
+    </div>
+</div>
+
+<!-- Same styles & lightbox script used on commissions.html -->
 <style>
-  .gallery_image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .card-body {
-    flex-grow: 1;
-  }
+    .gallery-thumb {
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        cursor: zoom-in;
+    }
+    .gallery-thumb:hover {
+        transform: scale(1.05);
+    }
 </style>
 
-<header>
-  <center>
-    <h1 style="padding: 30px; font-size: 3.5rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(129, 99, 78);">
-      <strong>Live Painting Gallery</strong>
-    </h1>
-  </center>
-</header>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = new bootstrap.Lightbox(document.querySelectorAll('[data-bs-toggle="lightbox"]'), {
+            keyboard: true,
+            backdrop: true
+        });
+    });
+</script>
 
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <a href="{% url 'home' %}" class="btn btn-primary my-2">Home</a>
-        <a href="{% url 'add-event' %}" class="btn btn-secondary my-2">Book Event</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <!-- Picture 1 -->
-        <div class="col">
-          <div class="card shadow-sm lpcards">
-            <img class="gallery_image" src="{% static 'img/estancia.jpg' %}" alt="Artist painting at Estancia, La Jolla, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-             
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 2 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pink_dress.jpg' %}" alt="Water color portrait of man in black suit and woman in blue dress at wedding.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 3 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp2025_2.jpeg' %}" alt="Painting bride and groom at Monserate Winery in Fallbrooke, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-             
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 3 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp2025_1.jpeg' %}" alt="Painting bride and groom at Monserate Winery in Fallbrooke, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-             
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 3 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/monserate.jpg' %}" alt="Painting bride and groom at Monserate Winery in Fallbrooke, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-             
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 4 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/monserate2.jpg' %}" alt="Karla the artist painting outside at Monserate Winery in Fallbrook, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-               
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 5 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/monserate1.jpg' %}" alt="Brunch live painting event in Rancho Santa Fe">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 6 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/temecula.jpg' %}" alt="Artist painting water color portait at Avensole Winery in Temecula, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-             
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 7 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/monserate3.jpg' %}" alt="Karla the artist painting at Monserate Winery in Fallbrook, California">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-                
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 8 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/karla_painting.jpg' %}" alt="Water color portrait of couple touching heads and smiling at wedding.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 9 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt4.jpg' %}" alt="Water color portrait of a man in blue suit and woman in flower dress at a wedding.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 10 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt6.jpg' %}" alt="Water color portrait of groom kissing brides forehead at wedding.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 11 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt8.jpg' %}" alt="Watercolor portrait of bride and groom holding hands and walking down the aisle.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 12 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt5.jpg' %}" alt="Watercolor portrait of man in checkered shirt with woman in pink dress.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 13 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt9.jpg' %}" alt="Watercolor portrait of bride and groom kissing while holding a bouqet of flowers.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 14 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp14.jpg' %}" alt="Water color portrait of bride and groom posing arm in arm">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 15 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp2025_5.jpeg' %}" alt="Watercolor portrait of guests at wedding in Shelter Island, California">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 16 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp16.jpg' %}" alt="Watercolor portrait of bride and groom wearing white dress and black suit.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 17 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp17.jpg' %}" alt="Watercolor portrait of guests at a wedding.">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 18 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp100.jpg' %}" alt="Brunch live painting event in Rancho Santa Fe">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-              
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 19 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp99.jpg' %}" alt="live painting portrait of girl holding a beverage">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-                
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 20 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp98.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-            
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 21 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp97.jpg' %}" alt="wedding watercolor live painting portrait of woman with green pants">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-                
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 22 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp12.jpg' %}" alt="">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 23 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp2025_6.jpeg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 24 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/LP7.JPG' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-               
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 25 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/lp2025_3.jpeg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-          
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 26 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/LPussy.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-               
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 27 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/bridesmaids.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-               
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 28 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/mustachio.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body">
-              <small style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="text-body-secondary">
-               
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 29 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/LP1.JPG' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 30 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/LP2.jpg' %}" alt="wedding watercolor live painting portrait of girl with polka dot dress">
-            <div class="card-body">
-            </div>
-          </div>
-        </div>
-
-        <!-- Picture 31 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/LP3.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 32 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt2.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body"></div>
-          </div>
-        </div>
-
-        <!-- Picture 33 -->
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="gallery_image" src="{% static 'img/pt3.jpg' %}" alt="wedding watercolor live painting portrait">
-            <div class="card-body"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-  </div>
-</footer>
-
-{% endblock %}
+{% endblock content %}
