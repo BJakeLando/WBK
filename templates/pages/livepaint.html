@@ -6,6 +6,14 @@
 {% block content %}
 
 <!-- Hero Section -->
+<!-- Call to Action -->
+    <div class="text-center my-5 py-5">
+        
+        <a href="{% url 'add-event' %}" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">
+            <i class="fas fa-palette me-2"></i>Book Your Live Painter
+        </a>
+    </div>
+
 <section class="bg-light py-5 mb-5">
     <div class="container text-center">
         <h1 class="display-5 fw-light" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #81634e;">
@@ -113,13 +121,7 @@
 
     </div>
 
-    <!-- Call to Action -->
-    <div class="text-center my-5 py-5">
-        <h4>Bring the magic of live watercolor to your wedding or event</h4>
-        <a href="{% url 'add-event' %}" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">
-            <i class="fas fa-palette me-2"></i>Book Your Live Painter
-        </a>
-    </div>
+    
 </div>
 
 <!-- Same styles & lightbox script used on commissions.html -->
