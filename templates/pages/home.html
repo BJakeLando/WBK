@@ -18,21 +18,21 @@
 </div>
 
 <!-- VIDEO HERO SECTION with Valentine's overlay -->
-<div class="hero-video-wrapper" style="position:relative; width:100%; height:60vh; max-height:600px; min-height:400px; overflow:hidden; margin-bottom: 3rem;">
+<div class="hero-video-wrapper" style="position:relative; width:100%; height:50vh; max-height:500px; min-height:350px; overflow:hidden; margin-bottom: 3rem;">
   
-  <video 
-    id="bg-video" 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    preload="auto" 
-    poster="{% static 'img/homepage2025.jpeg' %}"
-    style="position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover; z-index:0;"
-  >
-    <source src="{% static 'videos/home_bg.mp4' %}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<video 
+  id="bg-video" 
+  autoplay 
+  muted 
+  loop 
+  playsinline 
+  preload="auto" 
+  poster="{% static 'img/homepage2025.jpeg' %}"
+  style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; z-index:0; background-color:#000;"
+>
+  <source src="{% static 'videos/home_bg.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
   
   <!-- Overlay Text on Video -->
   <div class="hero-video-content" style="position:relative; z-index:1; display:flex; align-items:center; justify-content:center; height:100%; color:white; text-align:center; padding:1rem; background:rgba(0,0,0,0.3);">
@@ -193,14 +193,14 @@
   /* Video responsiveness for laptops */
   @media (min-width: 1024px) and (max-width: 1440px) {
     .hero-video-wrapper {
-      height: 50vh !important;
-      max-height: 500px !important;
+      height: 45vh !important;
+      max-height: 450px !important;
     }
   }
   
   @media (min-width: 768px) and (max-width: 1024px) {
     .hero-video-wrapper {
-      height: 45vh !important;
+      height: 40vh !important;
       max-height: 400px !important;
     }
     .heart { font-size: 1.5rem !important; }
@@ -208,8 +208,8 @@
   
   @media (max-width: 767px) {
     .hero-video-wrapper {
-      height: 40vh !important;
-      min-height: 300px !important;
+      height: 35vh !important;
+      min-height: 280px !important;
     }
     .heart { font-size: 1.2rem !important; }
   }
