@@ -15,29 +15,20 @@ import os
 import mimetypes
 import dj_database_url
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 mimetypes.add_type("text/javascript", ".js", True)
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-# SECRET_KEY = 'django-insecure-n-#+(!vpu0s#5p8fpxwbtstscrsf5uhbiew@aoir09b+unxe#)'
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-DEBUG = False
-
-ALLOWED_HOSTS = ['127.0.0.1', 'www.paintedbykarla.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'www.paintedbykarla.com', '*.railway.app']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,7 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # MUST be here
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -69,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,10 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@viaduct.proxy.rlwy.net:30894/railway"
 
 DATABASES = {
@@ -104,13 +92,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -125,28 +111,20 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 CSRF_TRUSTED_ORIGINS = ['https://www.paintedbykarla.com']
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/Los_Angeles'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# Static files (CSS, JavaScript, Images) - FIXED
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-
-STATIC_URL = 'static/'
-STATICFILES_DIRS= [str(BASE_DIR.joinpath('static'))]
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # Whitenoise configuration for production
 STORAGES = {
     "default": {
@@ -163,47 +141,29 @@ WHITENOISE_MIMETYPES = {
     '.mp4': 'video/mp4',
 }
 
-
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
 
-## settings.py
-
-# ... (Previous settings)
-
-# Alternative Email Configuration (Now Standard TLS Configuration)
-# 💡 NEW EMAIL CONFIGURATION: Hotmail/Outlook (SMTP Office 365)
-EMAIL_HOST = 'smtp.office365.com'  # Standard host for Microsoft services
-EMAIL_PORT = 587                  # Standard port for TLS
-EMAIL_USE_TLS = True              # Use TLS
-EMAIL_USE_SSL = False             # Do not use SSL with port 587
-
-# 💡 ADD THIS LINE
+# Email Configuration
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 EMAIL_TIMEOUT = 10
-
-# Use your Hotmail email and the App Password
 EMAIL_HOST_USER = 'WatercolorsByKarla@hotmail.com'
-# IMPORTANT: Replace the dummy password below with a Microsoft App Password
-# This ensures it works in production without being blocked.
-EMAIL_HOST_PASSWORD = 'pdahtghobcrgilou' 
-
+EMAIL_HOST_PASSWORD = 'pdahtghobcrgilou'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# Set the default sender to match the account
 DEFAULT_FROM_EMAIL = 'WatercolorsByKarla@hotmail.com'
 
-# ... (Rest of your settings)
-
+# Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -219,9 +179,9 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers':['file'],
+            'handlers': ['file'],
             'propagate': True,
-            'level':'DEBUG',
+            'level': 'DEBUG',
         },
         'MYAPP': {
             'handlers': ['file'],
@@ -229,4 +189,3 @@ LOGGING = {
         },
     }
 }
-
