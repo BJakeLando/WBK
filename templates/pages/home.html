@@ -1,134 +1,237 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home Page{% endblock title %}
+{% block title %}Home - Watercolors By Karla | Valentine's Day Special{% endblock title %}
+
 {% block content %}
-<!doctype html>
-<html lang="en">
-  <head>
-   
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Artist Karla Lubbert that paints watercolor live guest portraits at weddings in Colorado, Utah, New Zealand, Wyoming and Ireland.">
-    <meta name="author" content="Brandon Landers">
-    <meta name="generator" content="">
- 
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+<!-- Valentine's Day Announcement Banner -->
+<div class="valentine-banner" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); padding: 1rem; text-align: center; border-bottom: 2px solid #ff6b9d;">
+  <p style="margin: 0; color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.3rem);">
+    💕 <strong>Valentine's Day Special:</strong> Book your 2026/2027 wedding by February 14th and receive a complimentary engagement portrait! 💕
+  </p>
+</div>
 
-
-
-  </head>
-  <body >
-
+<!-- SEO Hidden Keywords -->
 <div class="container">
-<p style="font-size: xx-small; color: white;">Wedding Portiats painted by a professional artist in Colorado, New Zealand, Utah and Wyoming. </p>
-
-
+  <p style="font-size: xx-small; color: white;">Wedding Portraits painted by a professional artist in Colorado, New Zealand, Utah and Wyoming.</p>
 </div>
 
-<main class="container">
-  <center>
-  <h1 style="padding:2rem; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Capturing Memories With a Brushstroke</h1>
+<!-- VIDEO HERO SECTION with Valentine's overlay -->
+<div class="hero-video-wrapper" style="position:relative; width:100%; height:60vh; max-height:600px; min-height:400px; overflow:hidden; margin-bottom: 3rem;">
   
-  <img style="margin-bottom: 2rem; height:auto; width: 85%;" src="{% static 'img/homepage2025.jpeg' %}" alt="karla lubbert doing watercolor painting">
-  <br>
-  <img style="margin-bottom: 2rem; height:auto; width: 85%;" src="{% static 'img/howitworks2025.jpeg' %}" alt="karla lubbert doing watercolor painting">
-  <br>
-
+  <video 
+    id="bg-video" 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    preload="auto" 
+    poster="{% static 'img/homepage2025.jpeg' %}"
+    style="position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); object-fit:cover; z-index:0;"
+  >
+    <source src="{% static 'videos/home_bg.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   
- 
-</center>
+  <!-- Overlay Text on Video -->
+  <div class="hero-video-content" style="position:relative; z-index:1; display:flex; align-items:center; justify-content:center; height:100%; color:white; text-align:center; padding:1rem; background:rgba(0,0,0,0.3);">
+    <div>
+      <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.7); font-weight: 700;">
+        Capturing Memories With a Brushstroke
+      </h1>
+      <p style="font-size: clamp(0.9rem, 1.8vw, 1.2rem); margin-top: 0.5rem; color: #ffb3ba; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+        ❤️ Celebrate Love This Valentine's Season ❤️
+      </p>
+    </div>
+  </div>
+</div>
 
-<div>
-  <center>
-  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-    
-      <div class="col p-4 d-flex flex-column position-static">
+<main class="container-fluid px-0">
+  
+  <!-- How It Works Image -->
+  <div class="text-center py-4">
+    <div class="container">
+      <img 
+        style="margin-bottom: 2rem; height:auto; width: 100%; max-width: 1200px;" 
+        src="{% static 'img/howitworks2025.jpeg' %}" 
+        alt="How live wedding painting works"
+        class="img-fluid"
+      >
+    </div>
+  </div>
+
+  <!-- Booking Steps Card with Valentine's accent -->
+  <div class="container my-5">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg position-relative" style="border-color: #ff9a9e !important; border-width: 2px !important;">
+      <div class="col p-4 d-flex flex-column position-static text-center">
+        <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem; color: #8b0000;">
+          💕 Easy Booking Process
+        </h2>
         
-        <br>
-
-        <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" class="card-text mb-auto">
-          <ul>Fill out online booking form.</ul>
-          <ul>Read and sign contract agreement.</ul>
-          <ul>Send deposit to save your date.</ul>
+        <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.25rem);" class="list-unstyled mb-4">
+          <li class="mb-2">✓ Fill out online booking form.</li>
+          <li class="mb-2">✓ Read and sign contract agreement.</li>
+          <li class="mb-2">✓ Send deposit to save your date.</li>
         </ol>
-        <br>
-        <p><a href="{% url 'add-event' %}"><button style="color: white; background-color: rgb(102, 137, 99);" class="btn btn-lg">Book Your Date!</button></a></p>
         
-        <h3 style="font-family:cursive;"><b>We have moved to Arizona, out of state event pricing is non negotiable due to high travel expenses</b></h3></center>
+        <p>
+          <a href="{% url 'add-event' %}">
+            <button style="color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;" class="btn btn-lg px-5 valentine-btn">
+              💝 Book Your Date!
+            </button>
+          </a>
+        </p>
         
+        <h3 style="font-family:cursive; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-3">
+          <b>We have moved to Arizona - out of state event pricing is non-negotiable due to high travel expenses</b>
+        </h3>
       </div>
+    </div>
+  </div>
 
+  <!-- Gallery Images -->
+  <div class="container text-center my-5">
+    <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem; color: #8b0000;">
+      Recent Work
+    </h2>
     
-    <div class="col-auto d-none d-lg-block">
-     
-
-    </div>
-  </div>
-</div>
-<br>
-<center>
-  <img style="height: auto; width: 75%; border-radius: 10%;"  src="{% static 'img/lp2025_5.jpeg' %}" alt="Groom elegantly dips his bride and kisses her">
-  <br><br>
-  <img style="height: auto; width: 75%; border-radius: 10%;"  src="{% static 'img/darlington.jpeg' %}" alt="Groom elegantly dips his bride and kisses her">
-  <br><br>
-
-  <h3 style=" font-family: cursive; color: rgb(102, 137, 99);">All prints available upon request!</h3>
-</center>
-  <br>
- 
-  <br>
- 
-
-  <div class="row mb-2"> <br>
+    <img 
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem; border: 3px solid #ffb3ba;" 
+      src="{% static 'img/lp2025_5.jpeg' %}" 
+      alt="Groom elegantly dips his bride and kisses her"
+      class="img-fluid"
+    >
+    <br>
+    <img 
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem; border: 3px solid #ffb3ba;" 
+      src="{% static 'img/darlington.jpeg' %}" 
+      alt="Wedding couple portrait"
+      class="img-fluid"
+    >
     
-    <div>
-      
-        
-      </div>
-    </div>
-    <div>
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong style="font-family:Verdana, Geneva, Tahoma, sans-serif"   class="d-inline-block mb-2"></strong>
-          <h3 style=" color: black; font-family:Verdana, Geneva, Tahoma, sans-serif"  class="mb-0"><strong><b>Recent Work</b></strong></h3>
-          <br>
-          <ul>
-  
-            <p><a href="{% url 'livepaint'  %}"><button class="btn btn-lg">Live Painting</button></a></p>
-            <p><a href="{% url 'commissions'  %}"><button class="btn btn-lg">In Studio Commissions</button></a></p>
-           
-          </ul>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-
-        </div>
-      </div>
-    </div>
-  
-  
-        
-          
-       
-       
+    <h3 style="font-family: cursive; color: #c94b7d; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-4">
+      All prints available upon request!
+    </h3>
   </div>
 
-  <div class="row g-5">
-    <div class="col-md-8">
-
-      <article class="blog-post">
-
-    </div>
-
+  <!-- Recent Work Section -->
+  <div class="container my-5">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+      <div class="col p-4 d-flex flex-column position-static text-center">
+        <h3 style="color: #8b0000; font-family:Verdana, Geneva, Tahoma, sans-serif" class="mb-4">
+          <strong>View More Galleries</strong>
+        </h3>
+        
+        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+          <p>
+            <a href="{% url 'livepaint' %}">
+              <button class="btn btn-lg btn-outline-danger px-5">Live Painting Gallery</button>
+            </a>
+          </p>
+          <p>
+            <a href="{% url 'commissions' %}">
+              <button class="btn btn-lg btn-outline-danger px-5">In Studio Commissions</button>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
-  {% endblock %}  
 </main>
 
+<!-- Valentine's Theme CSS -->
+<style>
+  /* Floating Hearts Animation */
+  .hearts-container {
+    animation: fadeIn 2s ease-in;
+  }
+  
+  .heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  .heart1 { left: 10%; animation-delay: 0s; }
+  .heart2 { left: 30%; animation-delay: 3s; font-size: 1.5rem; }
+  .heart3 { left: 50%; animation-delay: 6s; font-size: 2.5rem; }
+  .heart4 { left: 70%; animation-delay: 9s; font-size: 1.8rem; }
+  .heart5 { left: 90%; animation-delay: 12s; font-size: 2.2rem; }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Valentine's Button Hover Effect */
+  .valentine-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  /* Video responsiveness for laptops */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    .hero-video-wrapper {
+      height: 50vh !important;
+      max-height: 500px !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero-video-wrapper {
+      height: 45vh !important;
+      max-height: 400px !important;
+    }
+    .heart { font-size: 1.5rem !important; }
+  }
+  
+  @media (max-width: 767px) {
+    .hero-video-wrapper {
+      height: 40vh !important;
+      min-height: 300px !important;
+    }
+    .heart { font-size: 1.2rem !important; }
+  }
+  
+  /* Image responsiveness */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    main.container-fluid img {
+      max-width: 85% !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    main.container-fluid img {
+      max-width: 90% !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    main.container-fluid img {
+      width: 95% !important;
+    }
+  }
+</style>
 
-  </body>
-</html>
+{% endblock %}

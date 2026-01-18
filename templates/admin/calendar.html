@@ -1,0 +1,84 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css' rel='stylesheet' />
+<style>
+    #calendar {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .fc-event {
+        cursor: pointer;
+    }
+    
+    .fc-event:hover {
+        opacity: 0.8;
+    }
+    
+    .calendar-header {
+        text-align: center;
+        margin: 20px 0;
+        color: #8b0000;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="calendar-header">
+    <h1>💕 Event Booking Calendar</h1>
+    <p>Click on any event to view/edit details</p>
+</div>
+
+<div id='calendar'></div>
+
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,listMonth'
+            },
+            events: '/admin/accounts/livepaintevent/calendar/events/',
+            eventClick: function(info) {
+                info.jsEvent.preventDefault();
+                if (info.event.url) {
+                    window.location.href = info.event.url;
+                }
+            },
+            eventMouseEnter: function(info) {
+                // Show tooltip on hover
+                var tooltip = document.createElement('div');
+                tooltip.className = 'fc-tooltip';
+                tooltip.innerHTML = `
+                    <strong>${info.event.title}</strong><br>
+                    📧 ${info.event.extendedProps.email}<br>
+                    📱 ${info.event.extendedProps.phone}
+                `;
+                tooltip.style.cssText = 'position: absolute; background: white; border: 2px solid #ff6b9d; padding: 10px; border-radius: 5px; z-index: 10000; box-shadow: 0 4px 8px rgba(0,0,0,0.2);';
+                document.body.appendChild(tooltip);
+                
+                var rect = info.el.getBoundingClientRect();
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+                
+                info.el._tooltip = tooltip;
+            },
+            eventMouseLeave: function(info) {
+                if (info.el._tooltip) {
+                    info.el._tooltip.remove();
+                }
+            }
+        });
+        
+        calendar.render();
+    });
+</script>
+{% endblock %}
