@@ -15,7 +15,7 @@ import os
 import mimetypes
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: BASE_DIR / 'subdir'.fd
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 mimetypes.add_type("text/javascript", ".js", True)
