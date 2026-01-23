@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'accounts',
     'reviews',
+    'shop',
 ]
 
 MIDDLEWARE = [
@@ -189,3 +190,9 @@ LOGGING = {
         },
     }
 }
+
+# Stripe Configuration (add at the bottom)
+# Stripe Configuration (TEMPORARY - for development only)
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WEBHOOK_SECRET = ''  # We'll add this later

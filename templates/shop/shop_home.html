@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shop Prints - Watercolors By Karla{% endblock title %}
+
+{% block content %}
+
+<!-- Valentine's Shop Banner -->
+<div class="valentine-banner" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); padding: 1rem; text-align: center; border-bottom: 2px solid #ff6b9d;">
+  <p style="margin: 0; color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.3rem);">
+    💕 <strong>Shop Beautiful Watercolor Prints</strong> - Perfect for Your Home or as Gifts 💕
+  </p>
+</div>
+
+<div class="container my-5">
+  <!-- Shop Header -->
+  <div class="text-center mb-5">
+    <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #8b0000; margin-bottom: 1rem;">
+      🎨 Art Print Shop
+    </h1>
+    <p style="font-size: 1.2rem; color: #666; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+      Bring Karla's beautiful watercolor art into your home
+    </p>
+  </div>
+
+  <!-- Category Filter (Optional - can add later) -->
+  <div class="text-center mb-4">
+    <div class="btn-group" role="group">
+      <a href="?category=all" class="btn btn-outline-danger">All</a>
+      <a href="?category=wedding" class="btn btn-outline-danger">Weddings</a>
+      <a href="?category=landscape" class="btn btn-outline-danger">Landscapes</a>
+      <a href="?category=portrait" class="btn btn-outline-danger">Portraits</a>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  {% if products %}
+  <div class="row g-4">
+    {% for product in products %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm" style="border: 2px solid #ffb3ba; transition: transform 0.3s;">
+        <a href="{% url 'shop:product_detail' product.id %}" style="text-decoration: none; color: inherit;">
+          <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="height: 300px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #8b0000;">
+              {{ product.name }}
+            </h5>
+            <p class="card-text text-muted" style="font-size: 0.9rem; height: 3rem; overflow: hidden;">
+              {{ product.description|truncatewords:15 }}
+            </p>
+            <p class="h4" style="color: #c94b7d;">
+              <strong>From ${{ product.base_price }}</strong>
+            </p>
+            {% if product.featured %}
+            <span class="badge" style="background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%);">
+              ⭐ Featured
+            </span>
+            {% endif %}
+          </div>
+        </a>
+        <div class="card-footer bg-white border-top-0">
+          <a href="{% url 'shop:product_detail' product.id %}" class="btn btn-block valentine-btn" style="width: 100%; color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;">
+            View Details & Sizes
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- No Products Yet -->
+  <div class="text-center my-5">
+    <div class="card shadow-lg" style="border: 2px solid #ffb3ba; max-width: 600px; margin: 0 auto;">
+      <div class="card-body p-5">
+        <h3 style="color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+          🎨 Coming Soon!
+        </h3>
+        <p style="font-size: 1.1rem; margin-top: 1rem;">
+          We're currently preparing our beautiful print collection. Check back soon!
+        </p>
+        <p class="text-muted">
+          In the meantime, you can <a href="{% url 'add-event' %}" style="color: #c94b7d;">book a live painting</a> for your event.
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- Valentine's Theme CSS -->
+<style>
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.3) !important;
+  }
+  
+  .valentine-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-danger:hover {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%);
+    border-color: #ff6b9d;
+  }
+</style>
+
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Confirmation - Watercolors By Karla{% endblock title %}
+
+{% block content %}
+
+<!-- Valentine's Shop Banner -->
+<div class="valentine-banner" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); padding: 1rem; text-align: center; border-bottom: 2px solid #ff6b9d;">
+  <p style="margin: 0; color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.3rem);">
+    💕 <strong>Thank You For Your Order!</strong> 💕
+  </p>
+</div>
+
+<div class="container my-5">
+  <!-- Success Message -->
+  <div class="text-center mb-5">
+    <div style="font-size: 4rem; color: #ff6b9d;">✨</div>
+    <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #8b0000; margin-top: 1rem;">
+      Order Confirmed!
+    </h1>
+    <p style="font-size: 1.2rem; color: #666; margin-top: 1rem;">
+      We've received your order and will begin processing it shortly.
+    </p>
+  </div>
+
+  <div class="row">
+    <!-- Order Details -->
+    <div class="col-lg-8 mb-4">
+      <div class="card shadow-lg" style="border: 2px solid #ffb3ba;">
+        <div class="card-header" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); border-bottom: 2px solid #ff6b9d;">
+          <h3 style="color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin: 0;">
+            Order Details
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <!-- Order Number -->
+          <div class="alert" style="background: linear-gradient(135deg, #fff0f3 0%, #ffe3e9 100%); border: 2px solid #ffb3ba;">
+            <h5 style="color: #8b0000; margin: 0;">
+              Order Number: <strong>{{ order.order_number }}</strong>
+            </h5>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #666;">
+              Confirmation email sent to: <strong>{{ order.email }}</strong>
+            </p>
+          </div>
+
+          <!-- Order Items -->
+          <h5 style="color: #8b0000; margin-top: 2rem; margin-bottom: 1rem;">Items Ordered:</h5>
+          {% for item in order.items.all %}
+          <div class="row mb-3 pb-3 border-bottom" style="border-color: #ffb3ba !important;">
+            <div class="col-md-8">
+              <h6 style="color: #8b0000;">{{ item.product_name }}</h6>
+              <p class="text-muted mb-1">
+                <strong>Size:</strong> {{ item.variant_size }}
+              </p>
+              <p class="text-muted mb-1">
+                <strong>Type:</strong> {{ item.variant_paper_type }}
+              </p>
+              <p class="text-muted">
+                <strong>Quantity:</strong> {{ item.quantity }}
+              </p>
+            </div>
+            <div class="col-md-4 text-end">
+              <p style="color: #c94b7d; font-weight: bold; font-size: 1.1rem;">
+                ${{ item.get_subtotal }}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+
+          <!-- Totals -->
+          <div class="mt-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal:</span>
+              <strong>${{ order.subtotal }}</strong>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Shipping:</span>
+              <strong>${{ order.shipping_cost }}</strong>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Tax:</span>
+              <strong>${{ order.tax }}</strong>
+            </div>
+            <hr style="border-color: #ffb3ba;">
+            <div class="d-flex justify-content-between">
+              <strong style="font-size: 1.3rem;">Total:</strong>
+              <strong style="font-size: 1.3rem; color: #c94b7d;">${{ order.total_amount }}</strong>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <h5 style="color: #8b0000; margin-top: 2rem; margin-bottom: 1rem;">Shipping To:</h5>
+          <div class="card" style="border: 2px solid #ffb3ba; background: #fff9fa;">
+            <div class="card-body">
+              <p style="margin: 0; white-space: pre-line;">{{ order.get_shipping_address }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Status & Info -->
+    <div class="col-lg-4">
+      <div class="card shadow-lg mb-4" style="border: 2px solid #ffb3ba;">
+        <div class="card-header" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); border-bottom: 2px solid #ff6b9d;">
+          <h4 style="color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin: 0;">
+            What's Next?
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <h6 style="color: #8b0000;">📧 Check Your Email</h6>
+            <p style="font-size: 0.9rem; color: #666;">
+              You'll receive a confirmation email with your order details and tracking information once it ships.
+            </p>
+          </div>
+          
+          <hr style="border-color: #ffb3ba;">
+          
+          <div class="mb-3">
+            <h6 style="color: #8b0000;">🎨 We Start Printing</h6>
+            <p style="font-size: 0.9rem; color: #666;">
+              Your prints will be produced with premium quality materials.
+            </p>
+          </div>
+          
+          <hr style="border-color: #ffb3ba;">
+          
+          <div class="mb-3">
+            <h6 style="color: #8b0000;">📦 Ships in 5-7 Days</h6>
+            <p style="font-size: 0.9rem; color: #666;">
+              Your order will be carefully packaged and shipped to you.
+            </p>
+          </div>
+          
+          <hr style="border-color: #ffb3ba;">
+          
+          <div>
+            <h6 style="color: #8b0000;">💌 Questions?</h6>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">
+              Contact us at:
+            </p>
+            <p style="font-size: 0.9rem; margin: 0;">
+              <a href="mailto:WatercolorsbyKarla@gmail.com" style="color: #c94b7d; text-decoration: none;">
+                WatercolorsbyKarla@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Shopping -->
+      <div class="card shadow-lg" style="border: 2px solid #ffb3ba;">
+        <div class="card-body text-center p-4">
+          <h5 style="color: #8b0000; margin-bottom: 1rem;">Love Your Print?</h5>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">
+            Browse more beautiful watercolor artwork!
+          </p>
+          <a href="{% url 'shop:home' %}" class="btn valentine-btn w-100" style="color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;">
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .valentine-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s ease;
+  }
+</style>
+
+{% endblock %}
