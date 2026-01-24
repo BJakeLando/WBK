@@ -5,12 +5,10 @@ import uuid
 
 
 class Product(models.Model):
-    """Syncs with Printful products - represents a painting/print"""
-    printful_id = models.CharField(max_length=100, unique=True, null=True, blank=True)
+    """Represents a painting/print available for purchase"""
     name = models.CharField(max_length=255)
     description = models.TextField()
-    base_price = models.DecimalField(max_digits=10, decimal_places=2)
-    image_url = models.URLField(max_length=500)
+    image = models.ImageField(upload_to='products/', null=True, blank=True)
     
     # Categorization
     CATEGORY_CHOICES = [
@@ -37,28 +35,28 @@ class Product(models.Model):
         return self.name
 
 
-class ProductVariant(models.Model):
-    """Different sizes/types of prints for each product"""
-    product = models.ForeignKey(Product, related_name='variants', on_delete=models.CASCADE)
-    printful_variant_id = models.CharField(max_length=100, null=True, blank=True)
+class PrintSize(models.Model):
+    """Available print sizes and prices for a product"""
+    product = models.ForeignKey(Product, related_name='sizes', on_delete=models.CASCADE)
     
-    # Variant details
-    size = models.CharField(max_length=50)  # e.g., "8x10", "16x20", "24x36"
-    paper_type = models.CharField(max_length=100, default='Premium Matte')
-    
-    # Pricing
+    SIZE_CHOICES = [
+        ('5x7', '5" × 7"'),
+        ('8x10', '8" × 10"'),
+        ('11x14', '11" × 14"'),
+        ('16x20', '16" × 20"'),
+        ('18x24', '18" × 24"'),
+        ('24x36', '24" × 36"'),
+    ]
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    
-    # Inventory
-    sku = models.CharField(max_length=100, unique=True)
     in_stock = models.BooleanField(default=True)
     
     class Meta:
         ordering = ['price']
-        unique_together = ['product', 'size', 'paper_type']
+        unique_together = ['product', 'size']
     
     def __str__(self):
-        return f"{self.product.name} - {self.size} ({self.paper_type})"
+        return f"{self.product.name} - {self.get_size_display()} (${self.price})"
 
 
 class Cart(models.Model):
@@ -89,20 +87,20 @@ class Cart(models.Model):
 class CartItem(models.Model):
     """Individual items in a shopping cart"""
     cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
-    variant = models.ForeignKey(ProductVariant, on_delete=models.CASCADE)
+    print_size = models.ForeignKey(PrintSize, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     
     added_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        unique_together = ['cart', 'variant']
+        unique_together = ['cart', 'print_size']
     
     def __str__(self):
-        return f"{self.quantity}x {self.variant}"
+        return f"{self.quantity}x {self.print_size}"
     
     def get_subtotal(self):
         """Calculate subtotal for this item"""
-        return self.variant.price * self.quantity
+        return self.print_size.price * self.quantity
 
 
 class Order(models.Model):
@@ -124,9 +122,8 @@ class Order(models.Model):
     zip_code = models.CharField(max_length=20)
     country = models.CharField(max_length=50, default='US')
     
-    # Payment & Fulfillment IDs
+    # Payment ID
     stripe_payment_intent = models.CharField(max_length=255, blank=True)
-    printful_order_id = models.CharField(max_length=100, null=True, blank=True)
     
     # Status tracking
     STATUS_CHOICES = [
@@ -185,24 +182,18 @@ class Order(models.Model):
 class OrderItem(models.Model):
     """Individual items in an order"""
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
-    variant = models.ForeignKey(ProductVariant, on_delete=models.PROTECT)
     
     # Store product details at time of purchase (in case product changes later)
     product_name = models.CharField(max_length=255)
-    variant_size = models.CharField(max_length=50)
-    variant_paper_type = models.CharField(max_length=100)
-    
-    quantity = models.PositiveIntegerField()
+    size = models.CharField(max_length=20)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    
-    # Printful fulfillment tracking
-    printful_line_item_id = models.CharField(max_length=100, null=True, blank=True)
+    quantity = models.PositiveIntegerField()
     
     class Meta:
         ordering = ['id']
     
     def __str__(self):
-        return f"{self.quantity}x {self.product_name} ({self.variant_size})"
+        return f"{self.quantity}x {self.product_name} ({self.size})"
     
     def get_subtotal(self):
         """Calculate subtotal for this order item"""

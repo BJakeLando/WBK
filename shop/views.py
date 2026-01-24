@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from decimal import Decimal
-from .models import Product, ProductVariant, Cart, CartItem, Order, OrderItem
+from .models import Product, PrintSize, Cart, CartItem, Order, OrderItem
 import stripe
 import json
 
@@ -36,13 +36,13 @@ def shop_home(request):
 
 
 def product_detail(request, product_id):
-    """Display individual product with variants"""
+    """Display individual product with available sizes"""
     product = get_object_or_404(Product, id=product_id, is_active=True)
-    variants = product.variants.filter(in_stock=True)
+    sizes = product.sizes.filter(in_stock=True)
     
     context = {
         'product': product,
-        'variants': variants,
+        'sizes': sizes,
     }
     return render(request, 'shop/product_detail.html', context)
 
@@ -57,17 +57,17 @@ def view_cart(request):
     return render(request, 'shop/cart.html', context)
 
 
-def add_to_cart(request, variant_id):
-    """Add a product variant to cart"""
+def add_to_cart(request, size_id):
+    """Add a product size to cart"""
     if request.method == 'POST':
-        variant = get_object_or_404(ProductVariant, id=variant_id, in_stock=True)
+        print_size = get_object_or_404(PrintSize, id=size_id, in_stock=True)
         cart = get_or_create_cart(request)
         quantity = int(request.POST.get('quantity', 1))
         
         # Get or create cart item
         cart_item, created = CartItem.objects.get_or_create(
             cart=cart,
-            variant=variant,
+            print_size=print_size,
             defaults={'quantity': quantity}
         )
         
@@ -76,7 +76,7 @@ def add_to_cart(request, variant_id):
             cart_item.quantity += quantity
             cart_item.save()
         
-        messages.success(request, f'{variant.product.name} added to cart!')
+        messages.success(request, f'{print_size.product.name} added to cart!')
         return redirect('shop:view_cart')
     
     return redirect('shop:home')
@@ -137,7 +137,6 @@ def checkout(request):
         country = request.POST.get('country')
         customer_notes = request.POST.get('customer_notes', '')
         
-        # Calculate totals
         # Calculate totals
         subtotal = cart.get_total()
         shipping_cost = Decimal('8.00')  # Flat rate for now
@@ -245,12 +244,10 @@ def checkout_success(request):
         for cart_item in cart.items.all():
             OrderItem.objects.create(
                 order=order,
-                variant=cart_item.variant,
-                product_name=cart_item.variant.product.name,
-                variant_size=cart_item.variant.size,
-                variant_paper_type=cart_item.variant.paper_type,
+                product_name=cart_item.print_size.product.name,
+                size=cart_item.print_size.get_size_display(),
                 quantity=cart_item.quantity,
-                price=cart_item.variant.price,
+                price=cart_item.print_size.price,
             )
         
         # Send confirmation email to customer
@@ -298,7 +295,7 @@ def send_order_confirmation_email(order):
     """
     
     for item in order.items.all():
-        message += f"\n- {item.product_name} ({item.variant_size}) x{item.quantity} - ${item.get_subtotal()}"
+        message += f"\n- {item.product_name} ({item.size}) x{item.quantity} - ${item.get_subtotal()}"
     
     message += f"""
     
@@ -339,7 +336,7 @@ def send_order_notification_to_admin(order):
     """
     
     for item in order.items.all():
-        message += f"\n- {item.product_name} ({item.variant_size} - {item.variant_paper_type}) x{item.quantity} - ${item.get_subtotal()}"
+        message += f"\n- {item.product_name} ({item.size}) x{item.quantity} - ${item.get_subtotal()}"
     
     message += f"""
     
