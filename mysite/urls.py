@@ -29,3 +29,9 @@ urlpatterns = [
     path('reviews/', include('reviews.urls')),
     path('shop/', include('shop.urls')),
 ] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # For production, we still need to configure serving
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

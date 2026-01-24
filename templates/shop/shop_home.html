@@ -40,7 +40,13 @@
     <div class="col-md-6 col-lg-4">
       <div class="card h-100 shadow-sm" style="border: 2px solid #ffb3ba; transition: transform 0.3s;">
         <a href="{% url 'shop:product_detail' product.id %}" style="text-decoration: none; color: inherit;">
-          <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="height: 300px; object-fit: cover;">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 300px; object-fit: cover;">
+          {% else %}
+            <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 300px; background: linear-gradient(135deg, #ffe4e6 0%, #ffc9d4 100%);">
+              <span style="font-size: 3rem; color: #ff6b9d;">🎨</span>
+            </div>
+          {% endif %}
           <div class="card-body text-center">
             <h5 class="card-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #8b0000;">
               {{ product.name }}
