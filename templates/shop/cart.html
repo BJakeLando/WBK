@@ -40,22 +40,25 @@
             <div class="row mb-4 pb-4 border-bottom" style="border-color: #ffb3ba !important;">
               <!-- Product Image -->
               <div class="col-md-3">
-                <img src="{{ item.variant.product.image_url }}" alt="{{ item.variant.product.name }}" class="img-fluid rounded" style="border: 2px solid #ffb3ba;">
+                {% if item.print_size.product.image %}
+                  <img src="{{ item.print_size.product.image.url }}" alt="{{ item.print_size.product.name }}" class="img-fluid rounded" style="border: 2px solid #ffb3ba;">
+                {% else %}
+                  <div class="d-flex align-items-center justify-content-center rounded" style="border: 2px solid #ffb3ba; height: 150px; background: linear-gradient(135deg, #ffe4e6 0%, #ffc9d4 100%);">
+                    <span style="font-size: 3rem; color: #ff6b9d;">🎨</span>
+                  </div>
+                {% endif %}
               </div>
               
               <!-- Product Details -->
               <div class="col-md-5">
                 <h5 style="color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-                  {{ item.variant.product.name }}
+                  {{ item.print_size.product.name }}
                 </h5>
                 <p class="text-muted mb-1">
-                  <strong>Size:</strong> {{ item.variant.size }}
-                </p>
-                <p class="text-muted mb-1">
-                  <strong>Type:</strong> {{ item.variant.paper_type }}
+                  <strong>Size:</strong> {{ item.print_size.get_size_display }}
                 </p>
                 <p style="color: #c94b7d; font-weight: bold;">
-                  ${{ item.variant.price }} each
+                  ${{ item.print_size.price }} each
                 </p>
               </div>
               
@@ -91,7 +94,7 @@
                 Your cart is empty
               </h4>
               <p class="text-muted mb-4">Add some beautiful prints to your cart!</p>
-              <a href="{% url 'shop:home' %}" class="btn btn-lg valentine-btn" style="color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;">
+              <a href="{% url 'shop:shop_home' %}" class="btn btn-lg valentine-btn" style="color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;">
                 Continue Shopping
               </a>
             </div>
@@ -128,7 +131,7 @@
               💝 Proceed to Checkout
             </a>
             
-            <a href="{% url 'shop:home' %}" class="btn btn-outline-secondary w-100">
+            <a href="{% url 'shop:shop_home' %}" class="btn btn-outline-secondary w-100">
               Continue Shopping
             </a>
             
