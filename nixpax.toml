@@ -11,4 +11,4 @@ cmds = ["pip install -r requirements.txt"]
 
 # Start phase: Run Django
 [start]
-cmd = "python manage.py migrate && gunicorn your_project.wsgi:application"
+cmd = "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn mysite.wsgi:application"
