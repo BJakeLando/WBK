@@ -69,4 +69,4 @@ class PetPortraitSubmission(models.Model):
             '11x14': 120.00,
             '16x20': 220.00,
         }
-        return prices.get(self.portrait_size, 150.00)
+        return prices.get(self.portrait_size, 150.00)# Force migration run
