@@ -6,4 +6,4 @@ cmds = ["python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip in
 [phases.build]
 
 [start]
-cmd = "python manage.py collectstatic --noinput && python manage.py migrate --run-syncdb && python setup_admin.py && gunicorn mysite.wsgi:application"
+cmd = "python manage.py collectstatic --noinput && python manage.py migrate --run-syncdb && python create_pet_table.py && python setup_admin.py && gunicorn mysite.wsgi:application"
