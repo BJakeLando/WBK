@@ -64,8 +64,9 @@ class PetPortraitSubmission(models.Model):
     def get_price(self):
         """Return the price based on portrait size"""
         prices = {
-            '8x10': 150.00,
-            '11x14': 200.00,
-            '16x20': 300.00,
+            '5x7': 45.00,
+            '8x10': 75.00,
+            '11x14': 120.00,
+            '16x20': 220.00,
         }
         return prices.get(self.portrait_size, 150.00)

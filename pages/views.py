@@ -76,8 +76,16 @@ def create_pet_portrait_checkout(request):
     """
     Handle form submission and create Stripe Checkout session
     """
+    print(f"DEBUG: Request method: {request.method}")  # Debug line
+    print(f"DEBUG: POST data: {request.POST}")  # Debug line
+    print(f"DEBUG: FILES: {request.FILES}")  # Debug line
+    
     if request.method == 'POST':
         form = PetPortraitSubmissionForm(request.POST, request.FILES)
+        
+        print(f"DEBUG: Form is valid? {form.is_valid()}")  # Debug line
+        if not form.is_valid():
+            print(f"DEBUG: Form errors: {form.errors}")  # Debug line
         
         if form.is_valid():
             # Save the submission (without payment info yet)
@@ -85,11 +93,15 @@ def create_pet_portrait_checkout(request):
             submission.payment_status = 'pending'
             submission.save()
             
+            print(f"DEBUG: Submission saved with ID: {submission.id}")  # Debug line
+            
             # Get the price based on selected size
             price = submission.get_price()
+            print(f"DEBUG: Price calculated: {price}")  # Debug line
             
             try:
                 # Create Stripe Checkout Session
+                print(f"DEBUG: Creating Stripe session...")  # Debug line
                 checkout_session = stripe.checkout.Session.create(
                     payment_method_types=['card'],
                     line_items=[{
@@ -119,30 +131,58 @@ def create_pet_portrait_checkout(request):
                     }
                 )
                 
+                print(f"DEBUG: Stripe session created: {checkout_session.id}")  # Debug line
+                
                 # Save the session ID
                 submission.stripe_session_id = checkout_session.id
                 submission.save()
                 
                 # Redirect to Stripe Checkout
+                print(f"DEBUG: Redirecting to: {checkout_session.url}")  # Debug line
                 return redirect(checkout_session.url)
                 
             except Exception as e:
                 # Handle Stripe errors
+                print(f"DEBUG: Stripe error: {str(e)}")  # Debug line
                 form.add_error(None, f"Payment error: {str(e)}")
+                
+                # Get all static pet images for the gallery
+                all_pet_images = [
+                    'img/com_9.PNG',
+                    'img/com.JPG',
+                    'img/com_2.jpg',
+                    'img/com_1.jpg',
+                    'img/com_4.jpg',
+                ]
+                
                 return render(request, 'pages/pets.html', {
                     'form': form,
-                    'all_pet_images': [],
+                    'all_pet_images': all_pet_images,
                     'business_name': 'Watercolors By Karla',
+                    'stripe_public_key': settings.STRIPE_PUBLISHABLE_KEY,
                 })
         else:
             # Form is not valid, show errors
+            print(f"DEBUG: Form not valid, returning with errors")  # Debug line
+            
+            # Get all static pet images for the gallery
+            all_pet_images = [
+                'img/com_9.PNG',
+                'img/com.JPG',
+                'img/com_2.jpg',
+                'img/com_1.jpg',
+                'img/com_4.jpg',
+            ]
+            
             return render(request, 'pages/pets.html', {
                 'form': form,
-                'all_pet_images': [],
+                'all_pet_images': all_pet_images,
                 'business_name': 'Watercolors By Karla',
+                'stripe_public_key': settings.STRIPE_PUBLISHABLE_KEY,
             })
     
     # If not POST, redirect back to pet gallery
+    print(f"DEBUG: Not a POST request, redirecting to pets page")  # Debug line
     return redirect('pets')
 
 
