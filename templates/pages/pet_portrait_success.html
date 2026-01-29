@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %}Order Confirmed | {{ business_name }}{% endblock title %}
+{% load static %}
+
+{% block head_extra %}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f7f4;
+        }
+        
+        .success-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        
+        .success-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4a3e35;
+            margin-bottom: 1rem;
+        }
+        
+        .success-text {
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .order-details {
+            background: #faf9f7;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #4a3e35;
+        }
+        
+        .btn-primary-custom {
+            background-color: #7b685c;
+            border-color: #7b685c;
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #5c4e44;
+            border-color: #5c4e44;
+        }
+    </style>
+{% endblock head_extra %}
+
+{% block content %}
+<div class="container">
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        
+        <h1 class="success-heading">Order Confirmed!</h1>
+        
+        <p class="success-text">
+            Thank you for commissioning a custom pet portrait! Your payment has been received, 
+            and Karla will begin working on {{ submission.pet_name }}'s beautiful watercolor portrait.
+        </p>
+        
+        {% if submission %}
+        <div class="order-details">
+            <div class="detail-row">
+                <span class="detail-label">Pet's Name:</span>
+                <span>{{ submission.pet_name }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Portrait Size:</span>
+                <span>{{ submission.get_portrait_size_display }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Amount Paid:</span>
+                <span>${{ submission.amount_paid|floatformat:2 }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Order Date:</span>
+                <span>{{ submission.created_at|date:"F d, Y" }}</span>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="success-text">
+            <p>
+                <strong>What happens next?</strong>
+            </p>
+            <p>
+                1. You'll receive a confirmation email at <strong>{{ submission.customer_email }}</strong><br>
+                2. Karla will review your pet's photo and begin the portrait<br>
+                3. You'll be notified when your portrait is complete<br>
+                4. Your custom artwork will be carefully packaged and shipped to you
+            </p>
+        </div>
+        
+        <a href="{% url 'home' %}" class="btn btn-primary-custom">
+            Return to Home
+        </a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}Order Cancelled | {{ business_name }}{% endblock title %}
+{% load static %}
+
+{% block head_extra %}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f7f4;
+        }
+        
+        .cancel-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .cancel-icon {
+            font-size: 4rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+        
+        .cancel-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4a3e35;
+            margin-bottom: 1rem;
+        }
+        
+        .cancel-text {
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary-custom {
+            background-color: #7b685c;
+            border-color: #7b685c;
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            margin: 0.5rem;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #5c4e44;
+            border-color: #5c4e44;
+        }
+        
+        .btn-secondary-custom {
+            background-color: transparent;
+            border: 1px solid #7b685c;
+            color: #7b685c;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            margin: 0.5rem;
+        }
+        
+        .btn-secondary-custom:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+{% endblock head_extra %}
+
+{% block content %}
+<div class="container">
+    <div class="cancel-container">
+        <div class="cancel-icon">✕</div>
+        
+        <h1 class="cancel-heading">Order Cancelled</h1>
+        
+        <p class="cancel-text">
+            Your pet portrait order was cancelled and no payment was processed. 
+            Your photo submission has been saved, and you can return anytime to complete your order.
+        </p>
+        
+        <p class="cancel-text">
+            Have questions? Feel free to reach out to us before placing your order.
+        </p>
+        
+        <div>
+            <a href="{% url 'pets' %}" class="btn btn-primary-custom">
+                Try Again
+            </a>
+            <a href="{% url 'home' %}" class="btn btn-secondary-custom">
+                Return to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
