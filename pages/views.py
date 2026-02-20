@@ -16,6 +16,9 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # ============= EXISTING VIEWS =============
 
+def entrance(request):
+    return render(request, 'pages/entrance.html')
+
 def home(request):
     return render(request, 'pages/home.html')
 
@@ -76,16 +79,16 @@ def create_pet_portrait_checkout(request):
     """
     Handle form submission and create Stripe Checkout session
     """
-    print(f"DEBUG: Request method: {request.method}")  # Debug line
-    print(f"DEBUG: POST data: {request.POST}")  # Debug line
-    print(f"DEBUG: FILES: {request.FILES}")  # Debug line
+    print(f"DEBUG: Request method: {request.method}")
+    print(f"DEBUG: POST data: {request.POST}")
+    print(f"DEBUG: FILES: {request.FILES}")
     
     if request.method == 'POST':
         form = PetPortraitSubmissionForm(request.POST, request.FILES)
         
-        print(f"DEBUG: Form is valid? {form.is_valid()}")  # Debug line
+        print(f"DEBUG: Form is valid? {form.is_valid()}")
         if not form.is_valid():
-            print(f"DEBUG: Form errors: {form.errors}")  # Debug line
+            print(f"DEBUG: Form errors: {form.errors}")
         
         if form.is_valid():
             # Save the submission (without payment info yet)
@@ -93,15 +96,14 @@ def create_pet_portrait_checkout(request):
             submission.payment_status = 'pending'
             submission.save()
             
-            print(f"DEBUG: Submission saved with ID: {submission.id}")  # Debug line
+            print(f"DEBUG: Submission saved with ID: {submission.id}")
             
             # Get the price based on selected size
             price = submission.get_price()
-            print(f"DEBUG: Price calculated: {price}")  # Debug line
+            print(f"DEBUG: Price calculated: {price}")
             
             try:
-                # Create Stripe Checkout Session
-                print(f"DEBUG: Creating Stripe session...")  # Debug line
+                print(f"DEBUG: Creating Stripe session...")
                 checkout_session = stripe.checkout.Session.create(
                     payment_method_types=['card'],
                     line_items=[{
@@ -111,7 +113,7 @@ def create_pet_portrait_checkout(request):
                             'product_data': {
                                 'name': f'Custom Pet Portrait - {submission.portrait_size}',
                                 'description': f'Watercolor portrait of {submission.pet_name}',
-                                'images': [],  # You can add image URLs here if needed
+                                'images': [],
                             },
                         },
                         'quantity': 1,
@@ -131,22 +133,19 @@ def create_pet_portrait_checkout(request):
                     }
                 )
                 
-                print(f"DEBUG: Stripe session created: {checkout_session.id}")  # Debug line
+                print(f"DEBUG: Stripe session created: {checkout_session.id}")
                 
                 # Save the session ID
                 submission.stripe_session_id = checkout_session.id
                 submission.save()
                 
-                # Redirect to Stripe Checkout
-                print(f"DEBUG: Redirecting to: {checkout_session.url}")  # Debug line
+                print(f"DEBUG: Redirecting to: {checkout_session.url}")
                 return redirect(checkout_session.url)
                 
             except Exception as e:
-                # Handle Stripe errors
-                print(f"DEBUG: Stripe error: {str(e)}")  # Debug line
+                print(f"DEBUG: Stripe error: {str(e)}")
                 form.add_error(None, f"Payment error: {str(e)}")
                 
-                # Get all static pet images for the gallery
                 all_pet_images = [
                     'img/com_9.PNG',
                     'img/com.JPG',
@@ -162,10 +161,8 @@ def create_pet_portrait_checkout(request):
                     'stripe_public_key': settings.STRIPE_PUBLISHABLE_KEY,
                 })
         else:
-            # Form is not valid, show errors
-            print(f"DEBUG: Form not valid, returning with errors")  # Debug line
+            print(f"DEBUG: Form not valid, returning with errors")
             
-            # Get all static pet images for the gallery
             all_pet_images = [
                 'img/com_9.PNG',
                 'img/com.JPG',
@@ -181,8 +178,7 @@ def create_pet_portrait_checkout(request):
                 'stripe_public_key': settings.STRIPE_PUBLISHABLE_KEY,
             })
     
-    # If not POST, redirect back to pet gallery
-    print(f"DEBUG: Not a POST request, redirecting to pets page")  # Debug line
+    print(f"DEBUG: Not a POST request, redirecting to pets page")
     return redirect('pets')
 
 
@@ -194,17 +190,14 @@ def pet_portrait_success(request):
     
     if session_id:
         try:
-            # Retrieve the session from Stripe
             session = stripe.checkout.Session.retrieve(session_id)
             
-            # Find the submission
             submission_id = session.metadata.get('submission_id')
             submission = get_object_or_404(PetPortraitSubmission, id=submission_id)
             
-            # Update submission with payment info
             submission.payment_status = 'paid'
             submission.stripe_payment_intent_id = session.payment_intent
-            submission.amount_paid = session.amount_total / 100  # Convert from cents
+            submission.amount_paid = session.amount_total / 100
             submission.save()
             
             context = {
@@ -257,11 +250,9 @@ def stripe_webhook(request):
     except stripe.error.SignatureVerificationError:
         return HttpResponse(status=400)
     
-    # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         
-        # Retrieve submission and update
         submission_id = session.metadata.get('submission_id')
         if submission_id:
             try:

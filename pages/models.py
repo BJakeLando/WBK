@@ -16,9 +16,10 @@ class PetPortraitSubmission(models.Model):
     portrait_size = models.CharField(
         max_length=50,
         choices=[
-            ('8x10', '8" x 10" - $150'),
-            ('11x14', '11" x 14" - $200'),
-            ('16x20', '16" x 20" - $300'),
+            ('5x7', '5" x 7" - $50'),
+            ('8x10', '8" x 10" - $85'),
+            ('11x14', '11" x 14" - $160'),
+            ('16x20', '16" x 20" - $320'),
         ],
         default='8x10'
     )

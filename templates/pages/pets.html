@@ -1,14 +1,52 @@
-{% extends 'base.html' %}
-{% block title %}Pet Portrait Gallery | {{ business_name }}{% endblock title %}
 {% load static %}
-
-{% block head_extra %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Portrait Gallery | Watercolors By Karla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f7f4; 
+            background-color: #f8f7f4;
         }
-        
+
+        .pet-topbar {
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            border-bottom: 1px solid #e8e2dc;
+        }
+
+        .pet-topbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #4a3e35;
+            text-decoration: none;
+        }
+
+        .pet-topbar-brand:hover {
+            color: #4a3e35;
+        }
+
+        .pet-topbar-back {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #7b685c;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .pet-topbar-back:hover {
+            color: #4a3e35;
+        }
+
         .gallery-heading {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
@@ -29,12 +67,11 @@
             font-family: 'Roboto', sans-serif;
             color: #555;
             margin-bottom: 2rem;
-            max-width: 600px; 
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Upload Form Section */
         .upload-section {
             background: white;
             border-radius: 1rem;
@@ -50,37 +87,21 @@
             margin-bottom: 0.5rem;
         }
 
-        .size-option {
-            display: block;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .size-option:hover {
-            border-color: #7b685c;
-            background-color: #faf9f7;
-        }
-
-        /* Styling the image card for a clean, borderless look */
         .art-card {
             border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
 
         .art-card:hover {
-            transform: scale(1.03); 
+            transform: scale(1.03);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-image {
             width: 100%;
-            height: 300px; 
-            object-fit: cover; 
+            height: 300px;
+            object-fit: cover;
             display: block;
         }
 
@@ -91,7 +112,6 @@
             border-radius: 0.5rem;
         }
 
-        /* Call to Action Button Styling */
         .btn-primary-custom {
             background-color: #7b685c;
             border-color: #7b685c;
@@ -104,6 +124,7 @@
         .btn-primary-custom:hover {
             background-color: #5c4e44;
             border-color: #5c4e44;
+            color: white;
         }
 
         .btn-secondary-custom {
@@ -111,14 +132,9 @@
             border: 1px solid #7b685c;
             color: #7b685c;
         }
-        
+
         .btn-secondary-custom:hover {
             background-color: #f0f0f0;
-        }
-
-        .price-tag {
-            font-weight: bold;
-            color: #7b685c;
         }
 
         .form-text {
@@ -132,185 +148,185 @@
             margin: 4rem 0;
         }
     </style>
-{% endblock head_extra %}
+</head>
+<body>
 
-{% block content %}
+    <div class="pet-topbar">
+        <a href="{% url 'entrance' %}" class="pet-topbar-brand">Watercolors By Karla</a>
+        <a href="{% url 'entrance' %}" class="pet-topbar-back">← Back to Home</a>
+    </div>
 
-<main>
-    
-    <section class="py-5 text-center container">
-      <div class="row py-lg-3">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h1 style="font-family: cursive;" class="gallery-heading">Pet Portrait Gallery</h1><br>
-            
-            <img 
-                src="{% static 'img/homeshadow.jpg' %}" 
-                alt="A beautiful example of a pet portrait watercolor"
-                class="img-fluid d-block mx-auto header-image" 
-            > <br>
-            <p style="font-family: cursive;" class="gallery-intro">
-               Add a portrait of your pet to your collection
-            </p>
-        </div>
-      </div>
-    </section>
+    <main>
 
-    <!-- Pet Portrait Upload Section -->
-    <section class="container mb-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="upload-section">
-                    <h2 class="section-heading text-center mb-4">Commission Your Pet's Portrait</h2>
-                    <p class="text-center text-muted mb-4">
-                        Upload a photo of your beloved pet, and Karla will create a beautiful custom watercolor portrait
+        <section class="py-5 text-center container">
+            <div class="row py-lg-3">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <h1 style="font-family: cursive;" class="gallery-heading">Pet Portrait Gallery</h1><br>
+                    <img
+                        src="{% static 'img/homeshadow.jpg' %}"
+                        alt="A beautiful example of a pet portrait watercolor"
+                        class="img-fluid d-block mx-auto header-image"
+                    ><br>
+                    <p style="font-family: cursive;" class="gallery-intro">
+                        Add a portrait of your pet to your collection
                     </p>
+                </div>
+            </div>
+        </section>
 
-                    {% if form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Please correct the following errors:</strong>
-                            <ul>
-                                {% for field, errors in form.errors.items %}
-                                    {% for error in errors %}
-                                        <li>{{ field }}: {{ error }}</li>
+        <!-- Commission Form -->
+        <section class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="upload-section">
+                        <h2 class="section-heading text-center mb-4">Commission Your Pet's Portrait</h2>
+                        <p class="text-center text-muted mb-4">
+                            Upload a photo of your beloved pet, and Karla will create a beautiful custom watercolor portrait
+                        </p>
+
+                        {% if form.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Please correct the following errors:</strong>
+                                <ul>
+                                    {% for field, errors in form.errors.items %}
+                                        {% for error in errors %}
+                                            <li>{{ field }}: {{ error }}</li>
+                                        {% endfor %}
                                     {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
 
-                    <form method="post" action="{% url 'create_pet_portrait_checkout' %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.customer_name.id_for_label }}" class="form-label">
-                                    {{ form.customer_name.label }}
+                        <form method="post" action="{% url 'create_pet_portrait_checkout' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.customer_name.id_for_label }}" class="form-label">
+                                        {{ form.customer_name.label }}
+                                    </label>
+                                    {{ form.customer_name }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.customer_email.id_for_label }}" class="form-label">
+                                        {{ form.customer_email.label }}
+                                    </label>
+                                    {{ form.customer_email }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.customer_phone.id_for_label }}" class="form-label">
+                                        {{ form.customer_phone.label }}
+                                    </label>
+                                    {{ form.customer_phone }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.pet_name.id_for_label }}" class="form-label">
+                                        {{ form.pet_name.label }}
+                                    </label>
+                                    {{ form.pet_name }}
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.pet_photo.id_for_label }}" class="form-label">
+                                    {{ form.pet_photo.label }}
                                 </label>
-                                {{ form.customer_name }}
+                                {{ form.pet_photo }}
+                                <div class="form-text">
+                                    Please upload a clear, high-quality photo of your pet. JPG, PNG, or HEIC formats accepted.
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.customer_email.id_for_label }}" class="form-label">
-                                    {{ form.customer_email.label }}
+
+                            <div class="mb-3">
+                                <label for="{{ form.portrait_size.id_for_label }}" class="form-label">
+                                    {{ form.portrait_size.label }}
                                 </label>
-                                {{ form.customer_email }}
+                                {{ form.portrait_size }}
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.customer_phone.id_for_label }}" class="form-label">
-                                    {{ form.customer_phone.label }}
+                            <div class="mb-4">
+                                <label for="{{ form.additional_notes.id_for_label }}" class="form-label">
+                                    {{ form.additional_notes.label }}
                                 </label>
-                                {{ form.customer_phone }}
+                                {{ form.additional_notes }}
+                                <div class="form-text">
+                                    Share any special details, personality traits, or preferences for the portrait
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.pet_name.id_for_label }}" class="form-label">
-                                    {{ form.pet_name.label }}
-                                </label>
-                                {{ form.pet_name }}
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary-custom btn-lg">
+                                    Proceed to Payment
+                                </button>
                             </div>
-                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="mb-3">
-                            <label for="{{ form.pet_photo.id_for_label }}" class="form-label">
-                                {{ form.pet_photo.label }}
-                            </label>
-                            {{ form.pet_photo }}
-                            <div class="form-text">
-                                Please upload a clear, high-quality photo of your pet. JPG, PNG, or HEIC formats accepted.
-                            </div>
-                        </div>
+        <!-- Divider -->
+        <div class="divider"></div>
 
-                        <div class="mb-3">
-                            <label for="{{ form.portrait_size.id_for_label }}" class="form-label">
-                                {{ form.portrait_size.label }}
-                            </label>
-                            {{ form.portrait_size }}
-                        </div>
+        <!-- Gallery Section -->
+        <section class="container text-center mb-4">
+            <h2 class="section-heading">Past Commissions</h2>
+            <p class="text-muted">See examples of Karla's beautiful pet portrait work</p>
+            <div class="mt-3">
+                <a href="{% url 'entrance' %}" class="btn btn-secondary-custom my-2 mx-2">← Back to Home</a>
+            </div>
+        </section>
 
-                        <div class="mb-4">
-                            <label for="{{ form.additional_notes.id_for_label }}" class="form-label">
-                                {{ form.additional_notes.label }}
-                            </label>
-                            {{ form.additional_notes }}
-                            <div class="form-text">
-                                Share any special details, personality traits, or preferences for the portrait
-                            </div>
-                        </div>
+        <div class="album py-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
 
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary-custom btn-lg">
-                                Proceed to Payment
-                            </button>
+                    <div class="col">
+                        <div class="card art-card">
+                            <img class="gallery-image" src="{% static 'img/com_9.PNG' %}" alt="commission watercolor painting portrait of a dog">
                         </div>
-                    </form>
+                    </div>
+                    <div class="col">
+                        <div class="card art-card">
+                            <img class="gallery-image" src="{% static 'img/com.JPG' %}" alt="commission watercolor painting portrait of a dog">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card art-card">
+                            <img class="gallery-image" src="{% static 'img/com_2.jpg' %}" alt="commission watercolor painting portrait">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card art-card">
+                            <img class="gallery-image" src="{% static 'img/com_1.jpg' %}" alt="commission watercolor painting portrait">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card art-card">
+                            <img class="gallery-image" src="{% static 'img/com_4.jpg' %}" alt="commission watercolor painting portrait of a cat">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Divider -->
-    <div class="divider"></div>
+    </main>
 
-    <!-- Gallery Section -->
-    <section class="container text-center mb-4">
-        <h2 class="section-heading">Past Commissions</h2>
-        <p class="text-muted">See examples of Karla's beautiful pet portrait work</p>
-        <div class="mt-3">
-            <a href="{% url 'add-event' %}" class="btn btn-secondary-custom my-2 mx-2">Inquire About Other Commissions</a>
-            <a href="{% url 'home' %}" class="btn btn-secondary-custom my-2 mx-2">View Wedding & Live Painting Art</a>
+    <footer class="text-body-secondary py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#" style="color: #7b685c;">Back to top</a>
+            </p>
+            <p class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 0.8rem; color: #aaa;">
+                © Watercolors By Karla, LLC — All artwork is the sole property of Karla Lubbert and held under copyright.
+            </p>
         </div>
-    </section>
-    
-    <div class="album py-5">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-          
-          {% for image_path in all_pet_images %} 
-          <div class="col">
-            <div class="card art-card">
-             <img class="gallery-image" src="{% static image_path %}" alt="commission watercolor painting portrait of a dog">
-             </div>
-          </div>
-          {% endfor %} 
-          <div class="col">
-            <div class="card art-card">
-             <img class="gallery-image" src="{% static 'img/com_9.PNG'%}" alt="commission watercolor painting portrait of a dog">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card art-card">
-              <img class="gallery-image" src="{% static 'img/com.JPG'%}" alt="commission watercolor painting portrait of a dog">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card art-card">
-            <img class="gallery-image" src="{% static 'img/com_2.jpg'%}" alt="commission watercolor painting portrait">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card art-card">
-              <img class="gallery-image" src="{% static 'img/com_1.jpg'%}" alt="commission watercolor painting portrait">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card art-card">
-              <img class="gallery-image" src="{% static 'img/com_4.jpg'%}" alt="commission watercolor painting portrait of a cat">
-            </div>
-          </div>
+    </footer>
 
-        </div>
-      </div>
-    </div>
-    
-</main>
-    
-<footer class="text-body-secondary py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#" style="color: #7b685c;">Back to top</a>
-      </p>
-    </div>
-</footer>
-      
-{% endblock content %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

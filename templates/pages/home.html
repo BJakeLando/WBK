@@ -1,24 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home - Watercolors By Karla | Valentine's Day Special{% endblock title %}
-
-{% block content %}
-
-<!-- Valentine's Day Announcement Banner -->
-<div class="valentine-banner" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); padding: 1rem; text-align: center; border-bottom: 2px solid #ff6b9d;">
-  <p style="margin: 0; color: #8b0000; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.3rem);">
-    💕 <strong>Valentine's Day Special:</strong> Book your 2026/2027 wedding by February 14th and receive a complimentary engagement portrait! 💕
-  </p>
-</div>
+{% block title %}Home - Watercolors By Karla | Live Wedding Painting{% endblock title %}
 
 <!-- SEO Hidden Keywords -->
 <div class="container">
   <p style="font-size: xx-small; color: white;">Wedding Portraits painted by a professional artist in Colorado, New Zealand, Utah and Wyoming.</p>
 </div>
 
-<!-- VIDEO HERO SECTION with Valentine's overlay -->
+{% block content %}
+
 <!-- VIDEO HERO SECTION - FULL WIDTH -->
+ <br><br>
 <div class="hero-video-wrapper" style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; margin-bottom: 3rem;">
   
   <video 
@@ -40,9 +33,6 @@
       <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.7); font-weight: 700;">
         Capturing Memories With a Brushstroke
       </h1>
-      <p style="font-size: clamp(0.9rem, 1.8vw, 1.2rem); margin-top: 0.5rem; color: #ffb3ba; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
-        ❤️ Celebrate Love This Valentine's Season ❤️
-      </p>
     </div>
   </div>
 </div>
@@ -61,12 +51,12 @@
     </div>
   </div>
 
-  <!-- Booking Steps Card with Valentine's accent -->
+  <!-- Booking Steps Card -->
   <div class="container my-5">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg position-relative" style="border-color: #ff9a9e !important; border-width: 2px !important;">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg position-relative">
       <div class="col p-4 d-flex flex-column position-static text-center">
-        <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem; color: #8b0000;">
-          💕 Easy Booking Process
+        <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem;">
+          Easy Booking Process
         </h2>
         
         <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.25rem);" class="list-unstyled mb-4">
@@ -77,8 +67,8 @@
         
         <p>
           <a href="{% url 'add-event' %}">
-            <button style="color: white; background: linear-gradient(135deg, #ff6b9d 0%, #c94b7d 100%); border: none;" class="btn btn-lg px-5 valentine-btn">
-              💝 Book Your Date!
+            <button style="color: white; background-color: #8b6f6f; border: none;" class="btn btn-lg px-5">
+              Book Your Date!
             </button>
           </a>
         </p>
@@ -92,46 +82,47 @@
 
   <!-- Gallery Images -->
   <div class="container text-center my-5">
-    <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem; color: #8b0000;">
+    <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem;">
       Recent Work
     </h2>
     
     <img 
-      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem; border: 3px solid #ffb3ba;" 
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;" 
       src="{% static 'img/lp2025_5.jpeg' %}" 
       alt="Groom elegantly dips his bride and kisses her"
       class="img-fluid"
     >
     <br>
     <img 
-      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem; border: 3px solid #ffb3ba;" 
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;" 
       src="{% static 'img/darlington.jpeg' %}" 
       alt="Wedding couple portrait"
       class="img-fluid"
     >
     
-    <h3 style="font-family: cursive; color: #c94b7d; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-4">
+    <h3 style="font-family: cursive; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-4">
       All prints available upon request!
     </h3>
   </div>
 
-  <!-- Recent Work Section -->
+  <!-- View More Galleries -->
+
   <div class="container my-5">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
       <div class="col p-4 d-flex flex-column position-static text-center">
-        <h3 style="color: #8b0000; font-family:Verdana, Geneva, Tahoma, sans-serif" class="mb-4">
+        <h3 style="font-family:Verdana, Geneva, Tahoma, sans-serif" class="mb-4">
           <strong>View More Galleries</strong>
         </h3>
         
         <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
           <p>
             <a href="{% url 'livepaint' %}">
-              <button class="btn btn-lg btn-outline-danger px-5">Live Painting Gallery</button>
+              <button class="btn btn-lg btn-outline-secondary px-5">Live Painting Gallery</button>
             </a>
           </p>
           <p>
             <a href="{% url 'commissions' %}">
-              <button class="btn btn-lg btn-outline-danger px-5">In Studio Commissions</button>
+              <button class="btn btn-lg btn-outline-secondary px-5">In Studio Commissions</button>
             </a>
           </p>
         </div>
@@ -141,55 +132,7 @@
 
 </main>
 
-<!-- Valentine's Theme CSS -->
 <style>
-  /* Floating Hearts Animation */
-  .hearts-container {
-    animation: fadeIn 2s ease-in;
-  }
-  
-  .heart {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.6;
-    animation: float 15s infinite ease-in-out;
-  }
-  
-  .heart1 { left: 10%; animation-delay: 0s; }
-  .heart2 { left: 30%; animation-delay: 3s; font-size: 1.5rem; }
-  .heart3 { left: 50%; animation-delay: 6s; font-size: 2.5rem; }
-  .heart4 { left: 70%; animation-delay: 9s; font-size: 1.8rem; }
-  .heart5 { left: 90%; animation-delay: 12s; font-size: 2.2rem; }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) rotate(0deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.6;
-    }
-    90% {
-      opacity: 0.6;
-    }
-    100% {
-      transform: translateY(-100px) rotate(360deg);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  /* Valentine's Button Hover Effect */
-  .valentine-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(255, 107, 157, 0.4);
-    transition: all 0.3s ease;
-  }
-  
   /* Video responsiveness for laptops */
   @media (min-width: 1024px) and (max-width: 1440px) {
     .hero-video-wrapper {
@@ -203,7 +146,6 @@
       height: 40vh !important;
       max-height: 400px !important;
     }
-    .heart { font-size: 1.5rem !important; }
   }
   
   @media (max-width: 767px) {
@@ -211,7 +153,6 @@
       height: 35vh !important;
       min-height: 280px !important;
     }
-    .heart { font-size: 1.2rem !important; }
   }
   
   /* Image responsiveness */

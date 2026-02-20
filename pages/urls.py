@@ -3,6 +3,7 @@ from django.urls import path
 from .views import (
     AboutView,
     home,
+    entrance,
     LivePaintView,
     CommissionsView,
     PrintsView,
@@ -10,7 +11,7 @@ from .views import (
     WelcomeView,
     GalleryView,
     PricingView,
-    # New pet portrait views (function-based)
+    # Pet portrait views
     pet_gallery_view,
     create_pet_portrait_checkout,
     pet_portrait_success,
@@ -19,8 +20,11 @@ from .views import (
 )
 
 urlpatterns = [
-    # Existing pages
-    path('', home, name='home'),
+    # Entrance landing page (new root)
+    path('', entrance, name='entrance'),
+
+    # Wedding site
+    path('wedding/', home, name='home'),
     path("about/", AboutView.as_view(), name='about'),
     path("pricing/", PricingView.as_view(), name='pricing'),
     path("livepaint/", LivePaintView.as_view(), name='livepaint'),
@@ -29,8 +33,8 @@ urlpatterns = [
     path("bio/", BioView.as_view(), name='bio'),
     path("welcome/", WelcomeView.as_view(), name='welcome'),
     path("gallery/", GalleryView.as_view(), name='gallery'),
-    
-    # Pet portrait pages (replaced PetsView with pet_gallery_view)
+
+    # Pet portrait pages
     path("pets/", pet_gallery_view, name='pets'),
     path("pets/checkout/", create_pet_portrait_checkout, name='create_pet_portrait_checkout'),
     path("pets/success/", pet_portrait_success, name='pet_portrait_success'),
