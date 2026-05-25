@@ -1,86 +1,241 @@
 {% extends 'base.html' %}
 
-{% block title %}Client Testimonials | {{ business_name }}{% endblock title %}
-
-{% block head_extra %}
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Styles for an Elegant Look */
-        body {
-            /* Soft, light off-white or very light grey for an elegant background */
-            background-color: #f8f7f4; 
-        }
-
-        .main-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem; /* Larger and more impactful */
-            font-weight: 700;
-            color: #333; /* Darker text for sophistication */
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e0dcd7; /* Subtle separator */
-        }
-
-        .review-card {
-            border: 1px solid #e0dcd7;
-            border-radius: 0.5rem; /* Slightly softer corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle lift */
-            margin-bottom: 2.5rem; /* More space between reviews */
-            background-color: white; /* Make the card pop against the background */
-            padding: 2rem;
-        }
-
-        .review-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: #555; /* A bit softer than the main header */
-        }
-        
-        .review-body {
-            font-family: 'Roboto', sans-serif; /* Clean, highly readable font for body text */
-            font-weight: 300;
-            line-height: 1.7; /* Increased line spacing for readability */
-            font-size: 1.1rem;
-            color: #333;
-            font-style: italic; /* Testimonials often look nice in italics */
-        }
-
-        /* Star Rating Style (using a placeholder for elegance) */
-        .star-rating {
-            color: #daa520; /* A soft gold or brass color */
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-    </style>
-{% endblock head_extra %}
+{% block title %}Client Testimonials - Watercolors By Karla{% endblock title %}
 
 {% block content %}
 
-<main class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <header class="text-center mb-5 mt-4">
-                <h1 class="main-heading">Kind Words From Our Couples</h1>
-                <p class="lead text-muted">See what past wedding clients have said about their experience.</p>
-            </header>
-            
-            {% for review in review_list %}
-                <div class="review-card">
-                    <div class="star-rating">
-                        ★★★★★
-                    </div>
-                    
-                    <blockquote class="blockquote mb-0">
-                        <p class="review-body">“{{ review.body }}”</p> 
-                        <footer class="blockquote-footer mt-3">
-                            <cite class="review-name">{{ review.name }}</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            {% endfor %}
-            </div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 360px;
+  }
+
+  .divider-ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a96e, transparent);
+  }
+
+  .divider-ornament .diamond {
+    width: 7px;
+    height: 7px;
+    background: #c9a96e;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .reviews-header {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+  }
+
+  .reviews-header .ornament {
+    color: #c9a96e;
+    font-size: 1.2rem;
+    letter-spacing: 0.6rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .reviews-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: #3d5c3d;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .reviews-header h1 em {
+    font-style: italic;
+    color: #c9a96e;
+  }
+
+  .reviews-header p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #5a7a5a;
+  }
+
+  .reviews-wrapper {
+    max-width: 780px;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+  }
+
+  .review-card {
+    background: #fdfaf5;
+    border-top: 2px solid #c9a96e;
+    padding: 2.5rem 2.5rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  @media (max-width: 576px) {
+    .review-card { padding: 1.75rem 1.25rem 1.5rem; }
+  }
+
+  .review-quote-mark {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: #c9a96e;
+    opacity: 0.4;
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-stars {
+    color: #c9a96e;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+  }
+
+  .review-body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: #3a3a3a;
+    line-height: 1.85;
+    margin: 0 0 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .review-footer-line {
+    flex: 0 0 30px;
+    height: 1px;
+    background: #c9a96e;
+  }
+
+  .review-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3d5c3d;
+  }
+
+  .review-source {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: #9a8a78;
+    letter-spacing: 0.1em;
+    margin-left: auto;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 1rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .cta-section h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    color: #3d5c3d;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #7a6a5a;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-btn {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.9rem 3rem;
+    background: #3d5c3d;
+    color: #f5efe6;
+    border: 1px solid #3d5c3d;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    background: #c9a96e;
+    color: #2a3a2a;
+    border-color: #c9a96e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(180,140,100,0.25);
+  }
+</style>
+
+<!-- Header -->
+<div class="reviews-header">
+  <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+  <h1>Kind Words From <em>Our Lovely Clients</em></h1>
+  <div class="divider-ornament">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+  <p>See what past wedding clients have said about their experience.</p>
+</div>
+
+<!-- Reviews -->
+<div class="reviews-wrapper">
+
+  {% for review in review_list %}
+  <div class="review-card">
+    
+    <div class="review-stars">★★★★★</div>
+    <p class="review-body">{{ review.body }}</p>
+    <div class="review-footer">
+      <div class="review-footer-line"></div>
+      <span class="review-name">{{ review.name }}</span>
+      {% if review.source %}
+        <span class="review-source">via {{ review.source }}</span>
+      {% endif %}
     </div>
-</main>
+  </div>
+  {% endfor %}
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="divider-ornament">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+  <h4>Ready to create your own memory?</h4>
+  <p>Dates fill quickly — we'd love to be part of your celebration.</p>
+  <a href="{% url 'add-event' %}" class="cta-btn">Book Your Date</a>
+  <div class="divider-ornament mt-4">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+</div>
 
 {% endblock content %}

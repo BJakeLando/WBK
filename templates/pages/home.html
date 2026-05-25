@@ -5,31 +5,76 @@
 
 {% block content %}
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 360px;
+  }
+
+  .divider-ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a96e, transparent);
+  }
+
+  .divider-ornament .diamond {
+    width: 7px;
+    height: 7px;
+    background: #c9a96e;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    .hero-video-wrapper { height: 45vh !important; max-height: 450px !important; }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero-video-wrapper { height: 40vh !important; max-height: 400px !important; }
+  }
+  @media (max-width: 767px) {
+    .hero-video-wrapper { height: 35vh !important; min-height: 280px !important; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    main.container-fluid img { max-width: 85% !important; }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    main.container-fluid img { max-width: 90% !important; }
+  }
+  @media (max-width: 767px) {
+    main.container-fluid img { width: 95% !important; }
+  }
+</style>
+
 <!-- SEO Hidden Keywords -->
 <div class="container">
   <p style="font-size: xx-small; color: white;">Wedding Portraits painted by a professional artist in Colorado, New Zealand, Utah and Wyoming.</p>
 </div>
 
-<!-- VIDEO HERO SECTION - FULL WIDTH -->
+<!-- VIDEO HERO SECTION -->
 <div class="hero-video-wrapper" style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; margin-bottom: 3rem;">
-  
-  <video 
-    id="bg-video" 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    preload="auto" 
+  <video
+    id="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
     poster="{% static 'img/homepage2025.jpeg' %}"
     style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;"
   >
     <source src="{% static 'videos/home_bg.mp4' %}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  
-  <div class="hero-video-content" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; display:flex; align-items:center; justify-content:center; color:white; text-align:center; padding:1rem; background:rgba(0,0,0,0.25);">
+
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; display:flex; align-items:center; justify-content:center; color:white; text-align:center; padding:1rem; background:rgba(0,0,0,0.25);">
     <div>
-      <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.7); font-weight: 700;">
+      <h1 style="font-family:'Cormorant Garamond', Cambria, Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.7); font-weight: 300; letter-spacing: 0.05em;">
         Capturing Memories With a Brushstroke
       </h1>
     </div>
@@ -37,138 +82,108 @@
 </div>
 
 <main class="container-fluid px-0">
+
   
-  <!-- How It Works Image -->
-  <div class="text-center py-4">
-    <div class="container">
-      <img 
-        style="margin-bottom: 2rem; height:auto; width: 100%; max-width: 1200px;" 
-        src="{% static 'img/howitworks2025.jpeg' %}" 
-        alt="How live wedding painting works"
-        class="img-fluid"
-      >
-    </div>
-  </div>
 
-  <!-- Booking Steps Card -->
+  <!-- Booking Steps -->
   <div class="container my-5">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg position-relative">
-      <div class="col p-4 d-flex flex-column position-static text-center">
-        <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem;">
-          Easy Booking Process
-        </h2>
-        
-        <ol style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: clamp(1rem, 2vw, 1.25rem);" class="list-unstyled mb-4">
-          <li class="mb-2">✓ Fill out online booking form.</li>
-          <li class="mb-2">✓ Read and sign contract agreement.</li>
-          <li class="mb-2">✓ Send deposit to save your date.</li>
-        </ol>
-        
-        <p>
-          <a href="{% url 'add-event' %}">
-            <button class="btn btn-lg btn-danger px-5">
-              Book Your Date!
-            </button>
-          </a>
-        </p>
-        
-        <h3 style="font-family:cursive; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-3">
-          <b>We have moved to Arizona - out of state event pricing is non-negotiable due to high travel expenses</b>
-        </h3>
+    <div style="background: #fdfaf5; border-top: 3px solid #3d5c3d; border-bottom: 3px solid #3d5c3d; max-width: 800px; margin: 0 auto; padding: 3rem 2rem; text-align: center;">
+
+      <h2 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: #3d5c3d; margin-bottom: 0.5rem;">
+        Easy Booking Process
+      </h2>
+
+      <div class="divider-ornament">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
       </div>
+
+      <ul style="font-family:'Cormorant Garamond', Georgia, serif; font-size: clamp(1rem, 2vw, 1.25rem); color: #3d5c3d; list-style: none; padding: 0; margin-bottom: 2rem;">
+        <li class="mb-2">✓ Fill out online booking form.</li>
+        <li class="mb-2">✓ Read and sign contract agreement.</li>
+        <li class="mb-2">✓ Send deposit to save your date.</li>
+      </ul>
+
+      <a href="{% url 'add-event' %}">
+        <button style="font-family:'Lato', sans-serif; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.85rem; padding: 0.9rem 3rem; background: #3d5c3d; color: #f5efe6; border: 1px solid #3d5c3d; border-radius: 0; cursor: pointer; transition: all 0.3s ease;"
+          onmouseover="this.style.background='#c9a96e'; this.style.borderColor='#c9a96e'; this.style.color='#2a3a2a';"
+          onmouseout="this.style.background='#3d5c3d'; this.style.borderColor='#3d5c3d'; this.style.color='#f5efe6';">
+          Book Your Date
+        </button>
+      </a>
+
+      <div class="divider-ornament mt-4">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
+      </div>
+
+      <p style="font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(0.95rem, 2vw, 1.1rem); color: #5a7a5a; margin: 0;">
+        We have moved to the White Mountains in Arizona — out of state event pricing is non-negotiable due to high travel expenses.
+      </p>
+
     </div>
   </div>
 
-  <!-- Gallery Images -->
+  <!-- Recent Work -->
   <div class="container text-center my-5">
-    <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-bottom: 2rem;">
+    <h2 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: #3d5c3d; margin-bottom: 0.5rem;">
       Recent Work
     </h2>
-    
-    <img 
-      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;" 
-      src="{% static 'img/lp2025_5.jpeg' %}" 
+    <div class="divider-ornament">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+
+    <img
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;"
+      src="{% static 'img/lp2025_5.jpeg' %}"
       alt="Groom elegantly dips his bride and kisses her"
       class="img-fluid"
     >
     <br>
-    <img 
-      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;" 
-      src="{% static 'img/darlington.jpeg' %}" 
+    <img
+      style="height: auto; width: 100%; max-width: 900px; border-radius: 10%; margin-bottom: 2rem;"
+      src="{% static 'img/darlington.jpeg' %}"
       alt="Wedding couple portrait"
       class="img-fluid"
     >
-    
-    <h3 style="font-family: cursive; font-size: clamp(1rem, 2.5vw, 1.5rem);" class="mt-4">
-      All prints available upon request!
-    </h3>
+
+    <p style="font-family:'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.3rem); color: #5a7a5a;" class="mt-3">
+      All prints available upon request.
+    </p>
   </div>
 
   <!-- Gallery Links -->
   <div class="container my-5">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
-      <div class="col p-4 d-flex flex-column position-static text-center">
-        <h3 style="font-family:Verdana, Geneva, Tahoma, sans-serif" class="mb-4">
-          <strong>View More Galleries</strong>
-        </h3>
-        
-        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
-          <p>
-            <a href="{% url 'livepaint' %}">
-              <button class="btn btn-lg btn-outline-danger px-5">Live Painting Gallery</button>
-            </a>
-          </p>
-          <p>
-            <a href="{% url 'commissions' %}">
-              <button class="btn btn-lg btn-outline-danger px-5">In Studio Commissions</button>
-            </a>
-          </p>
-        </div>
+    <div style="background: #fdfaf5; border-top: 3px solid #3d5c3d; border-bottom: 3px solid #3d5c3d; max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem; text-align: center;">
+
+      <h3 style="font-family:'Lato', sans-serif; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.85rem; color: #3d5c3d; margin-bottom: 2rem;">
+        View More Galleries
+      </h3>
+
+      <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+        <a href="{% url 'livepaint' %}">
+          <button style="font-family:'Lato', sans-serif; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.8rem; padding: 0.85rem 2.5rem; background: transparent; color: #3d5c3d; border: 1px solid #3d5c3d; border-radius: 0; cursor: pointer; transition: all 0.3s ease;"
+            onmouseover="this.style.background='#3d5c3d'; this.style.color='#f5efe6';"
+            onmouseout="this.style.background='transparent'; this.style.color='#3d5c3d';">
+            Live Painting Gallery
+          </button>
+        </a>
+        <a href="{% url 'commissions' %}">
+          <button style="font-family:'Lato', sans-serif; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.8rem; padding: 0.85rem 2.5rem; background: transparent; color: #3d5c3d; border: 1px solid #3d5c3d; border-radius: 0; cursor: pointer; transition: all 0.3s ease;"
+            onmouseover="this.style.background='#3d5c3d'; this.style.color='#f5efe6';"
+            onmouseout="this.style.background='transparent'; this.style.color='#3d5c3d';">
+            In Studio Commissions
+          </button>
+        </a>
       </div>
+
     </div>
   </div>
 
 </main>
-
-<style>
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    .hero-video-wrapper {
-      height: 45vh !important;
-      max-height: 450px !important;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .hero-video-wrapper {
-      height: 40vh !important;
-      max-height: 400px !important;
-    }
-  }
-  
-  @media (max-width: 767px) {
-    .hero-video-wrapper {
-      height: 35vh !important;
-      min-height: 280px !important;
-    }
-  }
-  
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    main.container-fluid img {
-      max-width: 85% !important;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    main.container-fluid img {
-      max-width: 90% !important;
-    }
-  }
-  
-  @media (max-width: 767px) {
-    main.container-fluid img {
-      width: 95% !important;
-    }
-  }
-</style>
 
 {% endblock %}
