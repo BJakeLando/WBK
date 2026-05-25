@@ -1,38 +1,273 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Add Event{% endblock title %}
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Artist Karla Lubbert that paints live guest portraits at weddings and other events.">
-    <meta name="author" content="Brandon Landers">
-    <meta name="generator" content="">
-</head>
+{% block title %}Book an Event - Watercolors By Karla{% endblock title %}
 
 {% block content %}
-<body class="homebg">
-    
 
-<center>
-<b><h1 style="font-size: 45px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top: 35px;">Book a Live Painting Event</h1></b>
-<br>
-<h2 style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Karla will be reaching out upon completion of the form:</h2>
-<br>
-{% if submitted %}
-    Your Event Was Submitted Successfully!
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
 
-{% else %}
-<div class="container-fluid">
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 360px;
+  }
 
-<form action="" method="POST" style="width:65%;">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit" class="btn btn-primary">
-</form>
-{% endif %}
+  .divider-ornament .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a96e, transparent);
+  }
+
+  .divider-ornament .diamond {
+    width: 7px;
+    height: 7px;
+    background: #c9a96e;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .booking-header {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+  }
+
+  .booking-header .ornament {
+    color: #c9a96e;
+    font-size: 1.2rem;
+    letter-spacing: 0.6rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .booking-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: #3d5c3d;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .booking-header h1 em {
+    font-style: italic;
+    color: #c9a96e;
+  }
+
+  .booking-header p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #5a7a5a;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .booking-form-wrapper {
+    background: #fdfaf5;
+    max-width: 720px;
+    margin: 1rem auto 4rem;
+    padding: 3.5rem 3rem;
+    border-top: 3px solid #3d5c3d;
+    border-bottom: 3px solid #3d5c3d;
+  }
+
+  @media (max-width: 576px) {
+    .booking-form-wrapper { padding: 2rem 1.25rem; }
+  }
+
+  .form-section-label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    color: #3d5c3d;
+    margin: 2rem 0 1rem;
+    display: block;
+  }
+
+  .form-section-label:first-of-type {
+    margin-top: 0;
+  }
+
+  .booking-form-wrapper .form-control {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #2a3a2a;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a0b8a0;
+    border-radius: 0;
+    padding: 0.6rem 0;
+    margin-bottom: 0.25rem;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .booking-form-wrapper .form-control:focus {
+    background: transparent;
+    border-bottom-color: #3d5c3d;
+    box-shadow: none;
+    outline: none;
+    color: #2a3a2a;
+  }
+
+  .booking-form-wrapper .form-control::placeholder {
+    color: #5a7a5a;
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
+
+  .booking-form-wrapper select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%233d5c3d'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    padding-right: 1.5rem;
+    cursor: pointer;
+  }
+
+  .booking-form-wrapper textarea.form-control {
+    border: 1px solid #a0b8a0;
+    padding: 0.75rem;
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .booking-form-wrapper textarea.form-control:focus {
+    border-color: #3d5c3d;
+  }
+
+  .field-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .submit-btn {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.9rem 3.5rem;
+    background: #3d5c3d;
+    color: #f5efe6;
+    border: 1px solid #3d5c3d;
+    border-radius: 0;
+    display: block;
+    margin: 2.5rem auto 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background: #c9a96e;
+    color: #2a3a2a;
+    border-color: #c9a96e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(180,140,100,0.25);
+  }
+
+  .success-message {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    color: #3d5c3d;
+    text-align: center;
+    padding: 3rem 1rem;
+    font-style: italic;
+  }
+
+  .success-message strong {
+    color: #c9a96e;
+    font-style: normal;
+    font-weight: 600;
+  }
+</style>
+
+<!-- Page Header -->
+<div class="booking-header">
+  <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+  <h1>Book a <em>Live Painting</em> Event</h1>
+  <div class="divider-ornament">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+  <p>We will be in touch upon receiving your inquiry.</p>
 </div>
-    
-</center>
-</body>
+
+<!-- Form -->
+<div class="container px-3">
+  <div class="booking-form-wrapper">
+
+    {% if submitted %}
+
+      <div class="success-message">
+        <div class="divider-ornament mb-4">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p>Your event has been submitted — <strong>thank you!</strong><br>Karla will be reaching out to you shortly.</p>
+        <div class="divider-ornament mt-4">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+    {% else %}
+
+      <form action="" method="POST">
+        {% csrf_token %}
+
+        <span class="form-section-label">About You</span>
+        <div class="field-group">{{ form.name }}</div>
+        <div class="field-group">{{ form.phone }}</div>
+        <div class="field-group">{{ form.email }}</div>
+        <div class="field-group">{{ form.instagram }}</div>
+
+        <div class="divider-ornament my-4">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+
+        <span class="form-section-label">Your Event</span>
+        <div class="field-group">{{ form.event_date }}</div>
+        <div class="field-group">{{ form.venue_name }}</div>
+        <div class="field-group">{{ form.venue }}</div>
+        <div class="field-group">{{ form.guest_count }}</div>
+        <div class="field-group">{{ form.wedding_planner }}</div>
+        <div class="field-group">{{ form.description }}</div>
+
+        <div class="divider-ornament my-4">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+
+        <span class="form-section-label">Your Vision</span>
+        <div class="field-group">{{ form.choice }}</div>
+        <div class="field-group">{{ form.budget }}</div>
+        <div class="field-group">{{ form.typeofclient }}</div>
+        <div class="field-group">{{ form.reference }}</div>
+
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+
+      </form>
+
+    {% endif %}
+
+  </div>
+</div>
+
 {% endblock content %}
