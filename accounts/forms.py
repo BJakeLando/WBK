@@ -33,7 +33,7 @@ class EventForm(ModelForm):
             'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Bride & Groom or Partner Names'}), 
             'phone':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Phone Number'}),
             'email':forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Email'}),
-            'event_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'event_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'placeholder': 'Click Here to Choose Event Date'}),
             'venue_name':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Venue Name'}),
             'venue':forms.TextInput(attrs={'class': 'form-control','placeholder': 'Venue Location (City, St)'}),
             'reference':forms.TextInput(attrs={'class': 'form-control','placeholder': 'How did you about us?'}),
