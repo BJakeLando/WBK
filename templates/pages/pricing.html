@@ -87,151 +87,52 @@
     flex-shrink: 0;
   }
 
-  /* ── Pricing Sheet ── */
-  .pricing-sheet {
-    background: #fdfaf5;
-    max-width: 680px;
+  /* ── Pricing Image ── */
+  .pricing-image-wrap {
+    max-width: 720px;
     margin: 0 auto;
-    padding: 4rem 3rem 3rem;
+    padding: 3.5rem 1.25rem 1rem;
+  }
+
+  .pricing-image-frame {
+    display: block;
+    background: #fdfaf5;
+    padding: 1rem;
     border-top: 3px solid #1a1a2e;
     border-bottom: 3px solid #1a1a2e;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .pricing-image-frame:hover {
+    box-shadow: 0 10px 30px rgba(26,26,46,0.12);
+  }
+
+  .pricing-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .pricing-image-caption {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9a8a78;
+    text-align: center;
+    margin-top: 1rem;
   }
 
   @media (max-width: 576px) {
-    .pricing-sheet { padding: 2.5rem 1.5rem 2rem; }
-  }
-
-  .sheet-eyebrow {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    color: #9a8a78;
-    margin-bottom: 0.3rem;
-  }
-
-  .sheet-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
-    color: #1a1a2e;
-    line-height: 1.1;
-    margin-bottom: 0;
-  }
-
-  /* ── Package rows ── */
-  .package {
-    padding: 2.25rem 0;
-    border-bottom: 1px solid #e8dcc8;
-  }
-
-  .package:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .package-label {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .package-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .dot-dark   { background: #2a2a2a; }
-  .dot-silver { background: linear-gradient(135deg, #9e9e9e, #c8c8c8); }
-  .dot-gold   { background: linear-gradient(135deg, #b8860b, #d4a017, #c9a96e); }
-
-  .package-name {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #3a2e24;
-  }
-
-  .package-desc {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    color: #5a4e42;
-    margin: 0.15rem 0 1rem 1.6rem;
-    line-height: 1.5;
-  }
-
-  .price-rows {
-    margin-left: 1.6rem;
-  }
-
-  .price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0.3rem 0;
-    max-width: 340px;
-  }
-
-  .price-row + .price-row {
-    border-top: 1px dotted #ddd0b8;
-  }
-
-  .price-duration {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #7a6a5a;
-  }
-
-  .price-amount {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-    font-weight: 600;
-    color: #1a1a2e;
-    letter-spacing: 0.02em;
-  }
-
-  /* ── Includes ── */
-  .includes-section {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e8dcc8;
-    text-align: center;
-  }
-
-  .includes-section p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    color: #5a4e42;
-    line-height: 1.9;
-    margin: 0;
-  }
-
-  .includes-section strong {
-    color: #1a1a2e;
-    font-weight: 600;
-  }
-
-  .includes-section em {
-    color: #9a8a78;
-    font-style: italic;
-  }
-
-  .watermark {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: #b8a898;
-    margin-top: 2rem;
-    text-align: center;
+    .pricing-image-wrap {
+      padding: 2rem 0.75rem 0.5rem;
+    }
+    .pricing-image-frame {
+      padding: 0.5rem;
+    }
   }
 
   /* ── CTA ── */
@@ -283,7 +184,7 @@
 <section class="pricing-hero text-center">
   <div class="container position-relative">
     <span class="ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-    <p class="pricing-tagline">Live Wedding & Event Painting</p>
+    <p class="pricing-tagline">Live Wedding &amp; Event Painting</p>
     <h1>Packages &amp; <em>Pricing</em></h1>
     <div class="divider-ornament">
       <div class="line"></div>
@@ -297,94 +198,13 @@
   </div>
 </section>
 
-<!-- Pricing Sheet -->
-<div class="container my-5">
-  <div class="pricing-sheet">
-
-    <div class="text-center mb-4">
-      <p class="sheet-eyebrow">Luxury Wedding</p>
-      <h2 class="sheet-title">Live Event Portraits</h2>
-      <div class="divider-ornament mt-3">
-        <div class="line"></div>
-        <div class="diamond"></div>
-        <div class="line"></div>
-      </div>
-    </div>
-
-    <!-- Tiny Gift -->
-    <div class="package">
-      <div class="package-label">
-        <div class="package-dot dot-dark"></div>
-        <span class="package-name">Tiny Gift</span>
-      </div>
-      <p class="package-desc">For bridesmaids &amp; groomsmen — up to 15 people painted</p>
-      <div class="price-rows">
-        <div class="price-row">
-          <span class="price-duration">2 hours</span>
-          <span class="price-amount">$700</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Silver -->
-    <div class="package">
-      <div class="package-label">
-        <div class="package-dot dot-silver"></div>
-        <span class="package-name">Silver Package</span>
-      </div>
-      <p class="package-desc">12–15 couples &nbsp;&middot;&nbsp; avg 24–30 guests</p>
-      <div class="price-rows">
-        <div class="price-row">
-          <span class="price-duration">2 hours</span>
-          <span class="price-amount">$850</span>
-        </div>
-        <div class="price-row">
-          <span class="price-duration">3 hours</span>
-          <span class="price-amount">$1,000</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gold -->
-    <div class="package">
-      <div class="package-label">
-        <div class="package-dot dot-gold"></div>
-        <span class="package-name">Gold Package</span>
-      </div>
-      <p class="package-desc">20–30 couples &nbsp;&middot;&nbsp; avg 40–60 guests</p>
-      <div class="price-rows">
-        <div class="price-row">
-          <span class="price-duration">3 hours</span>
-          <span class="price-amount">$1,200</span>
-        </div>
-        <div class="price-row">
-          <span class="price-duration">4 hours</span>
-          <span class="price-amount">$1,500</span>
-        </div>
-        <div class="price-row">
-          <span class="price-duration">5 hours</span>
-          <span class="price-amount">$2,000</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Includes -->
-    <div class="includes-section">
-      <div class="divider-ornament">
-        <div class="line"></div>
-        <div class="diamond"></div>
-        <div class="line"></div>
-      </div>
-      <p>
-        All portraits come in a <strong>5×7" protective sleeve.</strong><br>
-        Gold package includes a <strong>complimentary bride &amp; groom illustration</strong><br>
-        and completion of any unfinished portraits — painted in studio post-wedding.<br>
-        <em>These make beautiful thank-you cards!</em>
-      </p>
-      <div class="watermark">@Watercolors by Karla</div>
-    </div>
-
-  </div>
+<!-- Pricing Sheet Image -->
+<div class="pricing-image-wrap">
+  <a href="{% static 'img/8_Pricing.jpg' %}" target="_blank" rel="noopener" class="pricing-image-frame">
+    <img src="{% static 'img/8_Pricing.jpg' %}"
+         alt="Watercolors By Karla live event painting packages and pricing">
+  </a>
+  <p class="pricing-image-caption">Tap to view full size</p>
 </div>
 
 <!-- CTA -->

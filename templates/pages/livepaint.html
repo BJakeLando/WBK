@@ -29,55 +29,61 @@
     <!-- Gallery Grid -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
 
-        <!-- Just copy/paste one of these blocks every time you add a new photo -->
-         <div class="col">
+        <!-- When adding a new photo, copy one block below and change the filename in BOTH
+             the href (lightbox full size) and the src (grid thumbnail). -->
+        <div class="col">
             <a href="{% static 'img/8_01.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_01.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_02.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_02.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_04.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_04.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_05.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_05.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_06.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_06.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_07.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_07.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_08.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_08.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_09.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_09.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_10.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_10.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
             <a href="{% static 'img/8_11.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
-                <img src="{% static 'img/estancia.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live painting at Estancia La Jolla">
+                <img src="{% static 'img/8_11.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% static 'img/IMG_1345.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
+                <img src="{% static 'img/IMG_1345.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live wedding painting">
             </a>
         </div>
         <div class="col">
@@ -116,8 +122,6 @@
             </a>
         </div>
 
-        <!-- Add the rest of your images exactly like this (I’ve included them all below) -->
-
         <div class="col">
             <a href="{% static 'img/monserate1.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint">
                 <img src="{% static 'img/monserate1.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting">
@@ -142,32 +146,31 @@
             </a>
         </div>
 
-        <!-- Continue with all the rest — I’ve added every single one you had: -->
-        <div class="col"><a href="{% static 'img/pt4.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt4.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt6.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt6.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt8.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt8.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt5.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt5.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt9.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt9.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp14.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp14.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp2025_5.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_5.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp16.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp16.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp17.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp17.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp100.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp100.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp99.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp99.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp98.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp98.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp97.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp97.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp12.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp12.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp2025_6.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_6.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/LP7.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP7.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/lp2025_3.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_3.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/LPussy.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LPussy.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/bridesmaids.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/bridesmaids.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/mustachio.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/mustachio.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/LP1.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP1.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/LP2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/LP3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
-        <div class="col"><a href="{% static 'img/pt3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt=""></a></div>
+        <div class="col"><a href="{% static 'img/pt4.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt4.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt6.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt6.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt8.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt8.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt5.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt5.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt9.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt9.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp14.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp14.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_5.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_5.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp16.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp16.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp17.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp17.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp100.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp100.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp99.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp99.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp98.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp98.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp97.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp97.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp12.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp12.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_6.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_6.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/LP7.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP7.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/lp2025_3.jpeg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/lp2025_3.jpeg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/LPussy.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LPussy.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/bridesmaids.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/bridesmaids.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Bridesmaids portrait"></a></div>
+        <div class="col"><a href="{% static 'img/mustachio.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/mustachio.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/LP1.JPG' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP1.JPG' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/LP2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/LP3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/LP3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt2.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt2.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
+        <div class="col"><a href="{% static 'img/pt3.jpg' %}" data-bs-toggle="lightbox" data-gallery="livepaint"><img src="{% static 'img/pt3.jpg' %}" class="img-fluid rounded shadow-sm gallery-thumb" alt="Live event painting"></a></div>
 
     </div>
 
