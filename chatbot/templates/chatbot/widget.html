@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="{{ css_url }}">
+{{ config|json_script:"wbk-chat-config" }}
+<div id="wbk-chat" class="wbk-chat" data-csrf="{{ csrf_token }}">
+
+  <button type="button" class="wbk-chat__launcher" aria-controls="wbk-chat-panel" aria-expanded="false" aria-label="Chat with Karla's studio assistant">
+    <span class="wbk-chat__teaser" aria-hidden="true">Questions? Ask here</span>
+    <span class="wbk-chat__launcher-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="26" height="26" focusable="false">
+        <path d="M12 4.5c4.7 0 8.5 3.1 8.5 7s-3.8 7-8.5 7c-1 0-2-.1-2.9-.4L5 19.8l1.1-3.3C4.5 15.2 3.5 13.5 3.5 11.5c0-3.9 3.8-7 8.5-7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M12 8.2l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z" fill="currentColor"/>
+      </svg>
+    </span>
+  </button>
+
+  <section id="wbk-chat-panel" class="wbk-chat__panel" role="dialog" aria-labelledby="wbk-chat-title" aria-describedby="wbk-chat-subtitle" hidden>
+    <header class="wbk-chat__header">
+      <div class="wbk-chat__heading">
+        <p class="wbk-chat__eyebrow">Watercolors By Karla</p>
+        <p id="wbk-chat-title" class="wbk-chat__title">Studio Assistant</p>
+        <p id="wbk-chat-subtitle" class="wbk-chat__subtitle">AI assistant &middot; instant answers</p>
+      </div>
+      <div class="wbk-chat__actions">
+        <button type="button" class="wbk-chat__icon-btn" data-chat-action="restart" aria-label="Start a new chat" title="Start a new chat">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path d="M4.8 12a7.2 7.2 0 1 0 2.1-5.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4.6 4.4v3.8h3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button type="button" class="wbk-chat__icon-btn" data-chat-action="close" aria-label="Close chat" title="Close">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="wbk-chat__log" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <form class="wbk-chat__form" novalidate>
+      <label class="wbk-chat__sr" for="wbk-chat-input">Your question</label>
+      <textarea id="wbk-chat-input" class="wbk-chat__input" rows="1" maxlength="{{ config.maxChars }}" placeholder="Ask about pricing, dates&hellip;" autocomplete="off"></textarea>
+      <button type="submit" class="wbk-chat__send" aria-label="Send message">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+    <p class="wbk-chat__fineprint">Automated answers. Karla confirms every booking herself. <a href="{{ config.bookUrl }}">Book Your Date</a></p>
+  </section>
+</div>
+<script src="{{ js_url }}" defer></script>

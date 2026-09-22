@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'reviews',
     'shop',
+    'chatbot',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +80,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
-DATABASE_URL = "postgresql://postgres:4eF1566CGGEDF6fea6Af5gdG5GECA25g@viaduct.proxy.rlwy.net:30894/railway"
-
-DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-}
-
+# Railway provides DATABASE_URL as an environment variable. Never hard-code the
+# database password here: this repository is public on GitHub.
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -114,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://www.paintedbykarla.com']
+CSRF_TRUSTED_ORIGINS = ['https://www.paintedbykarla.com', 'https://paintedbykarla.com']
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -155,6 +152,28 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
+# Email alerts for Karla (see mysite/notifications.py).
+# Railway blocks SMTP, so alerts go through Resend's HTTPS API when RESEND_API_KEY is set.
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
+NOTIFY_TO_EMAIL = os.environ.get('NOTIFY_TO_EMAIL', 'WatercolorsByKarla@hotmail.com')
+# onboarding@resend.dev only delivers to the email address on your Resend account.
+# Once paintedbykarla.com is verified in Resend, set this to e.g.
+# "Watercolors By Karla <hello@paintedbykarla.com>".
+NOTIFY_FROM_EMAIL = os.environ.get('NOTIFY_FROM_EMAIL', 'Watercolors By Karla <onboarding@resend.dev>')
+SITE_URL = os.environ.get('SITE_URL', 'https://www.paintedbykarla.com')
+
+# Website assistant (chatbot app). It stays hidden until ANTHROPIC_API_KEY is set.
+ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY', '')
+# Kill switch: set CHATBOT_ENABLED=false in Railway to hide the chat without a code change.
+CHATBOT_ENABLED = (
+    os.environ.get('CHATBOT_ENABLED', 'true').lower() not in ('false', '0', 'no', 'off')
+    and bool(ANTHROPIC_API_KEY)
+)
+CHATBOT_MODEL = os.environ.get('CHATBOT_MODEL', 'claude-sonnet-5')
+CHATBOT_EFFORT = os.environ.get('CHATBOT_EFFORT', 'low')
+CHATBOT_DAILY_MESSAGE_LIMIT = int(os.environ.get('CHATBOT_DAILY_MESSAGE_LIMIT', '600'))
+CHATBOT_CONTACT_EMAIL = 'WatercolorsbyKarla@gmail.com'
+
 # Logging
 LOGGING = {
     'version': 1,
@@ -175,6 +194,12 @@ LOGGING = {
             'filename': 'mysite.log',
             'formatter': 'verbose'
         },
+        # Shows up in Railway's deploy logs.
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
     },
     'loggers': {
         'django': {
@@ -185,6 +210,14 @@ LOGGING = {
         'MYAPP': {
             'handlers': ['file'],
             'level': 'DEBUG',
+        },
+        'chatbot': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'mysite.notifications': {
+            'handlers': ['console'],
+            'level': 'INFO',
         },
     }
 }

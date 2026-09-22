@@ -1,89 +1,83 @@
+from django.conf import settings
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic.edit import DeleteView
-from django.contrib.auth.forms import UserCreationForm
-from .models import LivePaintEvent
-from django.urls import reverse_lazy
+
+from mysite.notifications import send_notification
+
 from .forms import EventForm
-from django.core.mail import send_mail
-from django.conf import settings
-import threading 
+from .models import LivePaintEvent
+
+BUDGET_LABELS = {
+    'below_1500': 'Below $1,500',
+    'above_1500': '$1,500 and above',
+}
 
 
-# Helper function to send email in a separate thread
-def send_email_in_background(subject, message, from_email, recipient_list):
-    """Handles the actual send_mail call, isolated in a thread."""
-    try:
-        send_mail(
-            subject,
-            message,
-            from_email,
-            recipient_list,
-            fail_silently=False, 
-        )
-        print("Email successfully dispatched to background thread.")
-    except Exception as e:
-        # Crucial for debugging: log the actual network/SMTP error in your production logs
-        print(f"ERROR: Background email failed to send. Check App Password/Network: {e}")
-
-
-class SignupView(CreateView):
-    form_class = UserCreationForm
-    template_name= "registration/signup.html"
-
+def booking_alert(event):
+    """Subject and body of the email Karla gets for each new inquiry."""
+    site_url = getattr(settings, 'SITE_URL', 'https://www.paintedbykarla.com').rstrip('/')
+    admin_link = site_url + reverse('admin:accounts_livepaintevent_change', args=[event.pk])
+    date_text = event.event_date.strftime('%A, %B %d, %Y')
+    subject = f'New booking inquiry: {event.name} ({event.event_date:%b %d, %Y})'
+    body = '\n'.join([
+        'Hey baba, a new client just filled out the form. Okay bye I love you!',
+        '',
+        f'Names: {event.name}',
+        f'Event date: {date_text}',
+        f'Venue: {event.venue_name} ({event.venue})',
+        f'Guest count: {event.guest_count}',
+        f'Budget: {BUDGET_LABELS.get(event.budget, event.budget)}',
+        f'Guests or couple painting: {event.choice}',
+        f'Event details: {event.description}',
+        f'Planner: {event.wedding_planner}',
+        f'Booking or just curious: {event.typeofclient}',
+        f'Heard about us: {event.reference}',
+        '',
+        f'Email: {event.email}',
+        f'Phone: {event.phone}',
+        f'Instagram: {event.instagram}',
+        '',
+        f'Open in admin: {admin_link}',
+        f'Reply to this email to write back to {event.name} directly.',
+    ])
+    return subject, body
 
 
 def add_event(request):
     submitted = False
-    event_list = LivePaintEvent.objects.all()
-    
+
     if request.method == 'POST':
         form = EventForm(request.POST)
-        mysiteurl = 'https:www.paintedbykarla.com/admin/accounts/livepaintevent/'
-        message_name = 'NEW CLIENT FORM SUBMITTED'
-        # The sender email will be pulled from settings.DEFAULT_FROM_EMAIL
-        sender_email = settings.DEFAULT_FROM_EMAIL 
-        message = 'Hey baba, a new client just filled out the form. Okay bye I love you! ' + '\n' + mysiteurl
-        
         if form.is_valid():
-            form.save()
-            
-            # Start the email sending in a new thread
-            email_thread = threading.Thread(
-                target=send_email_in_background,
-                args=(
-                    message_name, 
-                    message, 
-                    sender_email, 
-                    # 💡 CORRECTED RECIPIENT LIST
-                    ['WatercolorsByKarla@hotmail.com'] 
-                )
-            )
-            email_thread.start()
-            
-            # Request returns instantly
-            return render(request, 'accounts/success.html',
-                  {'event_list': event_list})
+            event = form.save()
+            subject, body = booking_alert(event)
+            # Sent in the background (via Resend on Railway), so the page returns instantly.
+            send_notification(subject, body, reply_to=event.email)
+            return render(request, 'accounts/success.html')
     else:
         form = EventForm
         if 'submitted' in request.GET:
             submitted = True
 
-    return render(request, 'accounts/add_event.html', {'form': form,'submitted': submitted})
+    return render(request, 'accounts/add_event.html', {'form': form, 'submitted': submitted})
 
 
-
-class EventDeleteView(DeleteView):
+class EventDeleteView(UserPassesTestMixin, DeleteView):
+    """Staff only. Without this check, anyone could delete booking inquiries."""
     template_name = "delete.html"
     model = LivePaintEvent
     success_url = reverse_lazy('home')
 
-    def test_fun(self, pk):
-        issue_obj = self.get_object(pk)
-        issue_obj.delete()
-        return self.request.user
-    
+    def test_func(self):
+        user = self.request.user
+        return user.is_active and user.is_staff
+
+
 class SignupView(CreateView):
     form_class = UserCreationForm
-    template_name= "registration/signup.html"
-    success_url= reverse_lazy('login')
+    template_name = "registration/signup.html"
+    success_url = reverse_lazy('login')
